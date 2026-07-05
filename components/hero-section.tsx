@@ -61,7 +61,7 @@ export function HeroSection() {
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl"></div>
             <div className="relative overflow-hidden rounded-3xl border border-border/60 shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1000&q=80"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP1p5TPbd7dVdU1eLxIGv_lG852RyzSbRC4biwQl7Hsg&s=10"
                 alt="A student smiling and waving during a live online class on her laptop"
                 className="aspect-[4/3] w-full object-cover object-[center_20%] transition-transform duration-700 hover:scale-105"
               />

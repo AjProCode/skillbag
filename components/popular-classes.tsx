@@ -1,33 +1,28 @@
-import { ArrowLeft, ArrowRight, Users } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 
 const classes = [
   {
     title: "Rubik's Cube",
-    students: "2,451 students",
     image:
       "https://images.unsplash.com/photo-1585504198199-20277593b94f?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Public Speaking",
-    students: "1,208 students",
     image:
       "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Creative Writing",
-    students: "1,104 students",
     image:
       "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Dance",
-    students: "1,987 students",
     image:
       "https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Music",
-    students: "1,764 students",
     image:
       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
   },
@@ -78,10 +73,6 @@ export function PopularClasses() {
               />
             </div>
             <h3 className="mt-3 text-sm font-bold text-foreground">{item.title}</h3>
-            <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
-              <Users className="size-3.5" />
-              {item.students}
-            </p>
           </article>
         ))}
       </div>

@@ -1,12 +1,6 @@
-import { MessageCircle, Play, Star, Video } from "lucide-react"
+import { MessageCircle, Play, Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const avatars = [
-  "https://i.pravatar.cc/80?img=12",
-  "https://i.pravatar.cc/80?img=32",
-  "https://i.pravatar.cc/80?img=45",
-  "https://i.pravatar.cc/80?img=5",
-]
+import { WHATSAPP_URL } from "@/lib/site"
 
 export function HeroSection() {
   return (
@@ -24,6 +18,7 @@ export function HeroSection() {
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Button
+              render={<a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" />}
               size="lg"
               className="rounded-full bg-primary px-6 text-primary-foreground hover:bg-primary/90"
             >
@@ -40,33 +35,6 @@ export function HeroSection() {
               </span>
               Watch how it works
             </Button>
-          </div>
-
-          <div className="mt-8">
-            <p className="text-sm font-medium text-muted-foreground">
-              Trusted by 1000+ learners &amp; parents
-            </p>
-            <div className="mt-3 flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {avatars.map((src, i) => (
-                  <img
-                    key={i}
-                    src={src || "/placeholder.svg"}
-                    alt=""
-                    className="size-8 rounded-full border-2 border-background object-cover"
-                  />
-                ))}
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="size-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-foreground">4.8</span>
-                <span className="text-sm text-muted-foreground">(2.4k reviews)</span>
-              </div>
-            </div>
           </div>
         </div>
 

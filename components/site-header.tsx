@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, GraduationCap, Menu, MessageCircle, X } from "lucide-react"
+import { ChevronDown, Menu, MessageCircle, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { WHATSAPP_URL } from "@/lib/site"
 
 const navLinks = [
   { label: "Classes", hasDropdown: true },
@@ -19,11 +20,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#" className="flex items-center gap-2 font-bold text-foreground">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <GraduationCap className="size-5" />
-          </span>
-          <span className="text-lg tracking-tight">Skillbag</span>
+        <a href="#" className="flex items-center" aria-label="Skillbag home">
+          <img
+            src="/skillbag-logo.png"
+            alt="Skillbag"
+            className="h-8 w-auto sm:h-9"
+          />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">
@@ -40,7 +42,10 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button className="hidden rounded-full bg-primary px-5 text-primary-foreground hover:bg-primary/90 sm:inline-flex">
+          <Button
+            render={<a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" />}
+            className="hidden rounded-full bg-primary px-5 text-primary-foreground hover:bg-primary/90 sm:inline-flex"
+          >
             <MessageCircle className="size-4" />
             Connect on WhatsApp
           </Button>
@@ -68,7 +73,10 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <Button className="mt-2 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button
+              render={<a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" />}
+              className="mt-2 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+            >
               <MessageCircle className="size-4" />
               Connect on WhatsApp
             </Button>

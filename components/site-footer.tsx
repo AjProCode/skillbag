@@ -1,5 +1,3 @@
-import { GraduationCap } from "lucide-react"
-
 function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -50,11 +48,8 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 font-bold text-foreground">
-              <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <GraduationCap className="size-5" />
-              </span>
-              <span className="text-lg tracking-tight">Skillbag</span>
+            <a href="#" className="flex items-center" aria-label="Skillbag home">
+              <img src="/skillbag-logo.png" alt="Skillbag" className="h-8 w-auto" />
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Interactive online classes for every age. Learn, practice and grow — from

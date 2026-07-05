@@ -1,11 +1,6 @@
 import { MessageCircle, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const avatars = [
-  "https://i.pravatar.cc/80?img=15",
-  "https://i.pravatar.cc/80?img=33",
-  "https://i.pravatar.cc/80?img=8",
-]
+import { WHATSAPP_URL } from "@/lib/site"
 
 export function CtaBanner() {
   return (
@@ -27,27 +22,16 @@ export function CtaBanner() {
 
           <div className="relative z-10 flex flex-col items-start gap-4 lg:items-end">
             <Button
+              render={<a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" />}
               size="lg"
-              className="rounded-full bg-background px-6 text-foreground hover:bg-background/90"
+              className="rounded-full bg-accent px-6 text-accent-foreground hover:bg-accent/90"
             >
               <MessageCircle className="size-4" />
               Connect on WhatsApp
             </Button>
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                {avatars.map((src, i) => (
-                  <img
-                    key={i}
-                    src={src || "/placeholder.svg"}
-                    alt=""
-                    className="size-7 rounded-full border-2 border-primary object-cover"
-                  />
-                ))}
-              </div>
-              <span className="text-xs text-primary-foreground/70">
-                We typically reply in a few minutes
-              </span>
-            </div>
+            <span className="text-xs text-primary-foreground/70">
+              We typically reply in a few minutes
+            </span>
           </div>
         </div>
       </div>

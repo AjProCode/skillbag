@@ -46,7 +46,7 @@
 
 :root {
   color-scheme: light;
-  --background: oklch(0.968 0.006 95);
+  --background: #F5F5F0;
   --foreground: oklch(0.24 0.012 160);
   --card: oklch(0.995 0.003 95);
   --card-foreground: oklch(0.24 0.012 160);

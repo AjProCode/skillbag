@@ -25,85 +25,64 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
-const columns = [
-  {
-    title: "Explore",
-    links: ["All Classes", "How it works", "For Kids", "For Adults"],
-  },
-  {
-    title: "Company",
-    links: ["About us", "Become a Teacher", "Careers", "Blog"],
-  },
-  {
-    title: "Support",
-    links: ["Help Center", "Contact us", "FAQs", "Privacy Policy"],
-  },
-]
-
 const socials = [InstagramIcon, YoutubeIcon, FacebookIcon]
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/60">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2">
+    <footer className="border-t border-border/60 bg-muted/30">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="grid gap-12 sm:grid-cols-2">
+          <div>
             <a href="#" className="flex items-center" aria-label="Skillbag home">
-              <img src="/skillbag-logo.png" alt="Skillbag" className="h-8 w-auto" />
+              <img src="/skillbag-logo.png" alt="Skillbag" className="h-9 w-auto transition-transform hover:scale-105" />
             </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Interactive online classes for every age. Learn, practice and grow — from
-              anywhere.
+              anywhere in the world.
             </p>
-          </div>
-
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h3 className="text-sm font-semibold text-foreground">{col.title}</h3>
-              <ul className="mt-4 space-y-3">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <div className="mt-6 flex items-center gap-4">
+              <a href="#" className="text-sm font-medium text-foreground transition-colors hover:text-accent">
+                Contact us
+              </a>
+              <span className="text-muted-foreground">•</span>
+              <a href="#" className="text-sm font-medium text-foreground transition-colors hover:text-accent">
+                Support
+              </a>
             </div>
-          ))}
+          </div>
 
           <div>
             <h3 className="text-sm font-semibold text-foreground">Stay connected</h3>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex gap-3">
               {socials.map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
                   aria-label="Social media"
-                  className="flex size-9 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-muted"
+                  className="flex size-10 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all hover:bg-accent hover:text-accent-foreground hover:shadow-md hover:shadow-accent/20"
                 >
                   <Icon className="size-4" />
                 </a>
               ))}
             </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              Follow us for updates and tips
+            </p>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-6 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 sm:flex-row">
           <p className="text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} Skillbag. All rights reserved.
           </p>
-          <div className="flex gap-5 text-xs text-muted-foreground">
-            <a href="#" className="transition-colors hover:text-foreground">
+          <div className="flex gap-6 text-xs text-muted-foreground">
+            <a href="#" className="transition-colors hover:text-foreground hover:underline decoration-1 underline-offset-4">
               Terms
             </a>
-            <a href="#" className="transition-colors hover:text-foreground">
+            <a href="#" className="transition-colors hover:text-foreground hover:underline decoration-1 underline-offset-4">
               Privacy
             </a>
-            <a href="#" className="transition-colors hover:text-foreground">
+            <a href="#" className="transition-colors hover:text-foreground hover:underline decoration-1 underline-offset-4">
               Cookies
             </a>
           </div>

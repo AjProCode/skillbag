@@ -5,6 +5,7 @@ import { SmallBatches } from "@/components/small-batches"
 import { WhyLove } from "@/components/why-love"
 import { CtaBanner } from "@/components/cta-banner"
 import { SiteFooter } from "@/components/site-footer"
+import { StickyMobileFooter } from "@/components/sticky-mobile-footer"
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
         <CtaBanner />
       </main>
       <SiteFooter />
+      <StickyMobileFooter />
     </div>
   )
 }

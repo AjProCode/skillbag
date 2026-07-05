@@ -18,7 +18,7 @@ export const courses: CourseItem[] = [
   {
     title: "Skillbag Rubik's Cube Course",
     image:
-      "https://images.unsplash.com/photo-1591714242141-74be20312017?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1567646303972-f7de3a9c0a05?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cnViaWNzJTIwY3ViZXxlbnwwfHwwfHx8MA%3D%3D",
     rating: 4.9,
     studentCount: 1250,
     duration: "8 weeks",
@@ -92,26 +92,6 @@ export const courses: CourseItem[] = [
       "Improve personal body coordination and timing",
       "Retain structured counts of choreography",
       "Stay physically active and confident dynamically",
-    ],
-  },
-  {
-    title: "Skillbag Art & Drawing Course",
-    image:
-      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
-    rating: 4.6,
-    studentCount: 420,
-    duration: "8 weeks",
-    isNewBatch: true,
-    teacherName: "Skillbag Creative Artist",
-    description:
-      "Discover lines, coloring fields, perspectives, and design skills via fun-filled drawing exercises and guided real-time practice labs.",
-    level: "Beginner",
-    lessons: "16 live sessions",
-    format: "Live interactive art lessons",
-    outcomes: [
-      "Understand core sketching and coloring layouts",
-      "Build strong observational and motor skills",
-      "Create independent pieces with color balance",
     ],
   },
   {
@@ -253,7 +233,7 @@ export const courses: CourseItem[] = [
   {
     title: "Skillbag Hindi Handwriting Class",
     image:
-      "https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&w=600&q=80",
+      "https://i.ytimg.com/vi/VZaniIv0UTI/maxresdefault.jpg",
     rating: 4.7,
     studentCount: 460,
     duration: "5 weeks",

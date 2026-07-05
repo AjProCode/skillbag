@@ -38,7 +38,7 @@ export const courses: CourseItem[] = [
   {
     title: "Skillbag Public Speaking Classes",
     image:
-      "https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=600&q=80",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsgYL6hkaqZfnV17aVX49ynfSY-tjOjUNRS74RjXYehQ&s=10",
     rating: 4.8,
     studentCount: 890,
     duration: "6 weeks",
@@ -75,29 +75,9 @@ export const courses: CourseItem[] = [
     ],
   },
   {
-    title: "Skillbag Dance Class",
-    image:
-      "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
-    rating: 4.9,
-    studentCount: 1580,
-    duration: "12 weeks",
-    isPopular: true,
-    teacherName: "Skillbag Choreography Expert",
-    description:
-      "Develop coordination, rhythm sense, and general fitness with step-by-step movement routines in a highly encouraging live online space.",
-    level: "All levels",
-    lessons: "30 live sessions",
-    format: "Live streamed classes + targeted practice videos",
-    outcomes: [
-      "Improve personal body coordination and timing",
-      "Retain structured counts of choreography",
-      "Stay physically active and confident dynamically",
-    ],
-  },
-  {
     title: "Skillbag Conversational Skills Course",
     image:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS50JUE6Ku_XgKSmp6YS8Uihv3fqro9mozbSL09e6798A&s=10",
     rating: 4.8,
     studentCount: 970,
     duration: "6 weeks",

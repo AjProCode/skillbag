@@ -1,3 +1,5 @@
+"use client"
+
 import { Star, Users, Clock, ChevronRight } from "lucide-react"
 
 interface ClassCardProps {
@@ -10,6 +12,7 @@ interface ClassCardProps {
   isNewBatch?: boolean
   teacherName?: string
   teacherAvatar?: string
+  onViewDetails?: () => void
 }
 
 export function EnhancedClassCard({
@@ -22,6 +25,7 @@ export function EnhancedClassCard({
   isNewBatch = false,
   teacherName,
   teacherAvatar,
+  onViewDetails,
 }: ClassCardProps) {
   return (
     <div className="group relative overflow-hidden rounded-2xl bg-white border border-stone-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-indigo-200">
@@ -51,7 +55,11 @@ export function EnhancedClassCard({
         
         {/* Quick View Button */}
         <div className="absolute bottom-3 left-3 right-3 translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-colors hover:bg-indigo-50">
+          <button
+            type="button"
+            onClick={onViewDetails}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-colors hover:bg-indigo-50"
+          >
             View Details
             <ChevronRight className="size-4" />
           </button>

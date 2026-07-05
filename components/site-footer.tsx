@@ -34,7 +34,7 @@ export function SiteFooter() {
         <div className="grid gap-12 sm:grid-cols-2">
           <div>
             <a href="#" className="flex items-center" aria-label="Skillbag home">
-              <img src="/skillbag-logo.png" alt="Skillbag" className="h-9 w-auto transition-transform hover:scale-105" />
+              <img src="/skillbag-logo.png" alt="Skillbag" className="h-12 w-auto transition-transform hover:scale-105" />
             </a>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Interactive online classes for every age. Learn, practice and grow — from

@@ -7,7 +7,6 @@ import { WHATSAPP_URL } from "@/lib/site"
 
 const navLinks = [
   { label: "Classes", hasDropdown: true },
-  { label: "How it works" },
   { label: "For Kids" },
   { label: "For Adults" },
   { label: "Become Teacher" },
@@ -24,7 +23,7 @@ export function SiteHeader() {
           <img
             src="/skillbag-logo.png"
             alt="Skillbag"
-            className="h-9 w-auto sm:h-10 transition-transform hover:scale-105"
+            className="h-12 w-auto sm:h-14 transition-transform hover:scale-105"
           />
         </a>
 

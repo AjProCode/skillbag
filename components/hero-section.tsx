@@ -34,16 +34,6 @@ export function HeroSection() {
               <MessageCircle className="size-5" />
               Connect on WhatsApp
             </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              className="rounded-full px-6 text-base font-semibold text-foreground transition-all hover:bg-muted/80"
-            >
-              <span className="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                <Play className="size-4 fill-current" />
-              </span>
-              Watch how it works
-            </Button>
           </div>
 
           <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">

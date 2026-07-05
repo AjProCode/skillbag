@@ -158,6 +158,16 @@ const classes = [
       isNewBatch: true,
       teacherName: "Simran Mehta",
     },
+]
+
+export function PopularClasses() {
+  const scrollRef = useRef<HTMLDivElement | null>(null)
+
+  const scrollBy = (distance: number) => {
+    if (!scrollRef.current) return
+    scrollRef.current.scrollBy({ left: distance, behavior: "smooth" })
+  }
+
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">

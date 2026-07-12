@@ -44,7 +44,7 @@ export function HeroSection() {
                         : "text-muted-foreground hover:text-foreground hover:bg-black/[0.02]"
                     }`}
                   >
-                    {value === "kids" ? "For Kids (Ages 6-15)" : "For Adults & Professionals"}
+                    {value === "kids" ? "For Kids (Ages 5-15)" : "For Adults & Professionals"}
                   </button>
                 ))}
               </div>

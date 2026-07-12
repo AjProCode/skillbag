@@ -120,12 +120,7 @@ export function SiteFooter() {
             <p className="mt-3 text-xs leading-relaxed text-slate-300">
               We stand by our coaching quality and small-batch dedication. Connect on WhatsApp if you have custom schedule requirements.
             </p>
-            <div className="mt-5 hidden lg:block">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-extrabold text-emerald-400 hover:text-emerald-300">
-                <span>View refund details</span>
-                <ArrowRight className="size-3.5" />
-              </a>
-            </div>
+
           </div>
 
           {/* Accordion list */}

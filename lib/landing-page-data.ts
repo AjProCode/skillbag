@@ -92,7 +92,12 @@ export function useLandingPageData() {
         ])
         
         if (docSnap && docSnap.exists()) {
-          setData(docSnap.data() as LandingPageData)
+          const fetchedData = docSnap.data() as LandingPageData
+          if (fetchedData && fetchedData.courses && fetchedData.hero && fetchedData.pasGrid && fetchedData.testimonials && fetchedData.faqs) {
+            setData(fetchedData)
+          } else {
+            console.warn("Firestore document found but is missing required CMS fields. Using static initialData instead.")
+          }
         }
       } catch (err) {
         console.warn("CMS config fallback to static JSON:", err)

@@ -42,7 +42,10 @@ export default function AdminPage() {
           )
         ])
         if (docSnap && docSnap.exists()) {
-          setData(docSnap.data() as LandingPageData)
+          const fetchedData = docSnap.data() as LandingPageData
+          if (fetchedData && fetchedData.courses && fetchedData.hero && fetchedData.pasGrid && fetchedData.testimonials && fetchedData.faqs) {
+            setData(fetchedData)
+          }
         }
       } catch (err) {
         console.warn("CMS config fallback to static JSON:", err)

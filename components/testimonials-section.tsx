@@ -100,13 +100,7 @@ function TestimonialCard({ item }: { item: typeof testimonials[number] }) {
           </div>
         </div>
 
-        {/* Mock Video Overlay if it is a video review */}
-        {item.isVideo && (
-          <div className="absolute right-4 bottom-4 flex items-center gap-1.5 rounded-full bg-emerald-500 hover:bg-emerald-600 px-3 py-1.5 text-[9px] font-black text-white shadow-sm transition-colors duration-250 cursor-pointer active:scale-95 animate-whatsapp-pulse">
-            <Play className="size-3 fill-current" />
-            <span>Play Clip ({item.videoDuration})</span>
-          </div>
-        )}
+
       </article>
     </ScrollReveal>
   )

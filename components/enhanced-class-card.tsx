@@ -36,8 +36,8 @@ export function EnhancedClassCard({
       )}
 
       {isNewBatch && (
-        <div className="absolute left-3 top-3 z-10 rounded-full bg-indigo-600 px-3 py-1 text-xs font-semibold text-white shadow-md">
-          New Batch
+        <div className="absolute left-3 top-3 z-10 rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white shadow-md">
+          Limited Seats
         </div>
       )}
 

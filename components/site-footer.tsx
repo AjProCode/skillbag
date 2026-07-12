@@ -26,12 +26,18 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 const socials = [InstagramIcon, YoutubeIcon, FacebookIcon]
+const faqs = [
+  { question: "Do you offer live classes only?", answer: "Yes, every Skillbag class is live and interactive, with no passive video-only learning." },
+  { question: "What is the batch size?", answer: "Most batches are intentionally small, with a maximum of 8 students so tutors can engage each learner." },
+  { question: "How do I book a trial or class?", answer: "Tap the WhatsApp CTA and our team will help you choose the best class and batch timing." },
+  { question: "What about refunds?", answer: "We offer a simple, transparent refund policy for eligible cases. Reach out and we will clarify it for you." },
+]
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/60 bg-muted/30">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-12 rounded-[2rem] border border-border/60 bg-card/70 p-6 shadow-soft backdrop-blur-sm sm:grid-cols-[1.1fr_0.9fr] sm:p-8">
+    <footer className="border-t border-border/60 bg-slate-950 text-slate-200">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <a href="#" className="flex items-center gap-3" aria-label="Skillbag home">
               <img
@@ -40,50 +46,62 @@ export function SiteFooter() {
                 className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105 sm:h-12"
               />
             </a>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Interactive online classes for every age. Learn, practice and grow — from anywhere in the world.
+            <p className="mt-5 max-w-xl text-sm leading-8 text-slate-300 sm:text-base">
+              Live online classes for confident learners, curious kids, and ambitious adults. Learn, practice, and grow with expert mentors in small, supportive batches.
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm">
-              <a href="#contact" className="font-medium text-foreground transition-colors hover:text-accent">
-                Contact us
-              </a>
-              <span className="text-muted-foreground">•</span>
-              <a href="#courses" className="font-medium text-foreground transition-colors hover:text-accent">
+            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-200">
+              <a href="#courses" className="font-medium transition-colors hover:text-white">
                 Browse classes
+              </a>
+              <span className="text-slate-500">•</span>
+              <a href="#reviews" className="font-medium transition-colors hover:text-white">
+                Read reviews
               </a>
             </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Stay connected</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">Stay connected</h3>
             <div className="mt-4 flex gap-3">
               {socials.map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
                   aria-label="Social media"
-                  className="flex size-10 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all hover:bg-accent hover:text-accent-foreground hover:shadow-md hover:shadow-accent/20"
+                  className="flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/10 text-slate-100 transition-all hover:bg-white/20"
                 >
                   <Icon className="size-4" />
                 </a>
               ))}
             </div>
-            <p className="mt-4 text-xs text-muted-foreground">Follow us for updates, tips, and new batch announcements.</p>
+            <p className="mt-4 text-sm text-slate-400">Follow us for updates, tips, and new batch announcements.</p>
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 sm:flex-row">
-          <p className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} Skillbag. All rights reserved.</p>
-          <div className="flex gap-6 text-xs text-muted-foreground">
-            <a href="#" className="transition-colors hover:text-foreground hover:underline decoration-1 underline-offset-4">
-              Terms
-            </a>
-            <a href="#" className="transition-colors hover:text-foreground hover:underline decoration-1 underline-offset-4">
-              Privacy
-            </a>
-            <a href="#" className="transition-colors hover:text-foreground hover:underline decoration-1 underline-offset-4">
-              Cookies
-            </a>
+        <div className="mt-8 grid gap-8 rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-soft backdrop-blur-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">Need help deciding?</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">We will help you pick the right path.</h3>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
+              Connect on WhatsApp and we will guide you through the best class, timing, and starting point for your goal.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="rounded-[1.2rem] border border-white/10 bg-black/15 px-4 py-3 text-sm text-slate-200">
+                <summary className="cursor-pointer font-semibold text-white">{faq.question}</summary>
+                <p className="mt-2 leading-7 text-slate-300">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+          <p className="text-xs text-slate-400">&copy; {new Date().getFullYear()} Skillbag. All rights reserved.</p>
+          <div className="flex gap-6 text-xs text-slate-400">
+            <a href="#" className="transition-colors hover:text-white">Terms</a>
+            <a href="#" className="transition-colors hover:text-white">Privacy</a>
+            <a href="#" className="transition-colors hover:text-white">Cookies</a>
           </div>
         </div>
       </div>

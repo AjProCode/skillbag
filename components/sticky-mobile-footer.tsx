@@ -28,7 +28,7 @@ export function StickyMobileFooter() {
         {!isMinimized && (
           <button
             onClick={() => setIsMinimized(true)}
-            className="flex size-9 flex-shrink-0 items-center justify-center rounded-full bg-stone-100 text-stone-600 transition-colors hover:bg-stone-200 sm:size-10"
+            className="flex size-9 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 sm:size-10"
             aria-label="Minimize"
           >
             <ChevronDown className="size-4 sm:size-5" />
@@ -39,25 +39,26 @@ export function StickyMobileFooter() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex flex-1 items-center justify-center gap-2 rounded-full bg-indigo-600 px-3 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-200 transition-all hover:bg-indigo-700 active:scale-95 sm:px-4 sm:py-3 ${
-            isMinimized ? "py-2" : ""
-          }`}
+          className={`group relative flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-full bg-emerald-500 px-3 py-2.5 text-sm font-semibold text-white shadow-[0_16px_40px_-16px_rgba(16,185,129,0.95)] transition-all hover:bg-emerald-600 active:scale-95 sm:px-4 sm:py-3 ${isMinimized ? "py-2" : ""}`}
         >
-          <MessageCircle className="size-4" />
-          <span>{isMinimized ? "Connect" : "Connect on WhatsApp"}</span>
+          <span className="absolute inset-0 animate-pulse bg-emerald-300/20" />
+          <span className="relative flex items-center gap-2">
+            <MessageCircle className="size-4" />
+            <span>{isMinimized ? "Connect" : "Connect on WhatsApp"}</span>
+          </span>
         </a>
 
         {!isMinimized && (
           <div className="flex-shrink-0 text-right">
-            <div className="text-xs font-semibold text-stone-900">2k+ students</div>
-            <div className="text-[10px] text-stone-500">Enrolled</div>
+            <div className="text-xs font-semibold text-slate-900">2k+ students</div>
+            <div className="text-[10px] text-slate-500">Enrolled</div>
           </div>
         )}
 
         {isMinimized && (
           <button
             onClick={() => setIsMinimized(false)}
-            className="flex size-9 flex-shrink-0 items-center justify-center rounded-full bg-stone-100 text-stone-600 transition-colors hover:bg-stone-200 sm:size-10"
+            className="flex size-9 flex-shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 sm:size-10"
             aria-label="Expand"
           >
             <ChevronUp className="size-4 sm:size-5" />

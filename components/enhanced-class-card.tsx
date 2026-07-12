@@ -1,6 +1,6 @@
 "use client"
 
-import { Star, Users, Clock, ChevronRight } from "lucide-react"
+import { ChevronRight, Clock, Star, Users } from "lucide-react"
 
 interface ClassCardProps {
   title: string
@@ -24,22 +24,20 @@ export function EnhancedClassCard({
   isPopular = false,
   isNewBatch = false,
   teacherName,
-  teacherAvatar,
   onViewDetails,
 }: ClassCardProps) {
-  return (
-    <div className="group relative overflow-hidden rounded-[1.5rem] border border-stone-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl">
-      {isPopular && (
-        <div className="absolute right-3 top-3 z-10 rounded-full bg-amber-500 px-3 py-1 text-xs font-semibold text-white shadow-md">
-          Popular
-        </div>
-      )}
+  const badgeText = isPopular ? "Popular" : isNewBatch ? "Filling Fast" : "Open" 
 
-      {isNewBatch && (
-        <div className="absolute left-3 top-3 z-10 rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white shadow-md">
-          Limited Seats
+  return (
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 shadow-[0_24px_70px_-30px_rgba(15,23,42,0.26)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_80px_-28px_rgba(15,23,42,0.32)]">
+      <div className="absolute left-3 right-3 top-3 z-10 flex items-start justify-between">
+        <div className={`rounded-full px-3 py-1 text-xs font-semibold text-white shadow-md ${isPopular ? "bg-amber-500" : isNewBatch ? "bg-emerald-600" : "bg-slate-700"}`}>
+          {badgeText}
         </div>
-      )}
+        <div className="rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-slate-700 shadow-sm">
+          {rating.toFixed(1)} ★
+        </div>
+      </div>
 
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
@@ -47,61 +45,64 @@ export function EnhancedClassCard({
           alt={title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+          <div className="rounded-full border border-white/25 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+            {duration}
+          </div>
+          <div className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700">
+            Live class
+          </div>
+        </div>
+      </div>
 
-        <div className="absolute bottom-3 left-3 right-3 translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="line-clamp-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-primary">
+          {title}
+        </h3>
+        <p className="mt-3 text-sm leading-7 text-slate-600">
+          Small-group coaching with clear outcomes, warm feedback, and real progress.
+        </p>
+
+        {teacherName && (
+          <div className="mt-4 flex items-center gap-2">
+            <div className="flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-primary/15 to-emerald-500/15 text-sm font-semibold text-primary">
+              {teacherName.charAt(0)}
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-slate-900">{teacherName}</p>
+              <p className="text-xs text-slate-500">Live mentor</p>
+            </div>
+          </div>
+        )}
+
+        <div className="mt-5 flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
+          <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1">
+            <Star className="size-3.5 fill-amber-400 text-amber-400" />
+            {rating.toFixed(1)} avg
+          </span>
+          <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1">
+            <Users className="size-3.5" />
+            {studentCount >= 1000 ? `${(studentCount / 1000).toFixed(1)}k` : studentCount}
+          </span>
+          <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1">
+            <Clock className="size-3.5" />
+            {duration}
+          </span>
+        </div>
+
+        <div className="mt-6 flex items-center justify-between">
+          <div className="text-sm font-semibold text-emerald-700">{isNewBatch ? "Next batch: this week" : "Open for enrollment"}</div>
           <button
             type="button"
             onClick={onViewDetails}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-indigo-600 shadow-lg transition-colors hover:bg-indigo-50"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
           >
-            View Details
+            View details
             <ChevronRight className="size-4" />
           </button>
         </div>
       </div>
-
-      <div className="p-4">
-        <div className="mb-3 flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <div className="flex items-center gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`size-3.5 ${
-                    i < Math.floor(rating) ? "fill-amber-400 text-amber-400" : "fill-stone-200 text-stone-200"
-                  }`}
-                />
-              ))}
-            </div>
-            <span className="text-sm font-semibold text-stone-900">{rating.toFixed(1)}</span>
-          </div>
-          <div className="flex items-center gap-1 text-xs text-stone-500">
-            <Users className="size-3.5" />
-            <span>{studentCount >= 1000 ? `${(studentCount / 1000).toFixed(1)}k` : studentCount}</span>
-          </div>
-        </div>
-
-        <h3 className="mb-3 line-clamp-2 text-base font-bold text-stone-900 transition-colors group-hover:text-indigo-600">
-          {title}
-        </h3>
-
-        {teacherName && (
-          <div className="mb-3 flex items-center gap-2">
-            <div className="flex size-7 items-center justify-center rounded-full bg-gradient-to-br from-indigo-100 to-indigo-200 text-xs font-semibold text-indigo-700">
-              {teacherName.charAt(0)}
-            </div>
-            <span className="text-xs text-stone-600">{teacherName}</span>
-          </div>
-        )}
-
-        <div className="flex items-center gap-1.5 text-xs text-stone-500">
-          <Clock className="size-3.5" />
-          <span>{duration}</span>
-        </div>
-      </div>
-
-      <div className="pointer-events-none absolute inset-0 rounded-[1.5rem] border-2 border-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
     </div>
   )
 }

@@ -1,13 +1,13 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Sparkles } from "lucide-react"
+import { Sparkles, CalendarRange } from "lucide-react"
 import { EnhancedClassCard } from "@/components/enhanced-class-card"
 import { CourseDetailsModal } from "@/components/course-details-modal"
 import { courses } from "@/lib/course-data"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
-const filters = ["All", "For Kids", "Communication", "Music", "Logic"] as const
+const filters = ["All", "Kids Corner", "Communication", "Music", "Logic & STEM"] as const
 
 type Filter = (typeof filters)[number]
 
@@ -19,10 +19,10 @@ export function PopularClasses() {
     if (activeFilter === "All") return courses
 
     const keywords = {
-      "For Kids": ["Children", "Kids", "Abacus", "Robotics"],
+      "Kids Corner": ["Children", "Kids", "Abacus", "Robotics"],
       Communication: ["Speaking", "Writing", "English", "Conversational", "Public"],
       Music: ["Guitar", "Keyboard"],
-      Logic: ["Chess", "Rubik", "Abacus", "Robotics"],
+      "Logic & STEM": ["Chess", "Rubik", "Abacus", "Robotics"],
     }
 
     return courses.filter((course) => {
@@ -34,32 +34,35 @@ export function PopularClasses() {
   return (
     <section id="courses" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <ScrollReveal>
-        <div className="rounded-[2rem] border border-border/70 bg-white/80 p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:p-10">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div className="rounded-[2.5rem] border border-black/[0.04] bg-white/70 p-6 shadow-premium backdrop-blur-xl sm:p-10 lg:p-14">
+          
+          {/* Header */}
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary">
-                <Sparkles className="size-4" />
-                Curated learning paths
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-bold text-primary uppercase tracking-wider">
+                <Sparkles className="size-3.5 fill-current animate-spin-slow" />
+                Decision-Simplified Catalog
               </div>
               <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-                Pick the class that fits your next breakthrough.
+                Find the perfect small-batch live class.
               </h2>
             </div>
-            <p className="max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
-              From public speaking to music and logic, each course is designed to feel supportive, practical, and worth your attention.
+            <p className="max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Vetted mentors, structured schedules, and focused groups of maximum 8 students. Swap passive watching for active growth.
             </p>
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-2">
+          {/* Interactive filter tabs */}
+          <div className="mt-10 flex flex-wrap gap-2 border-b border-black/[0.05] pb-5">
             {filters.map((filter) => (
               <button
                 key={filter}
                 type="button"
                 onClick={() => setActiveFilter(filter)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+                className={`rounded-full px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all duration-300 active:scale-95 ${
                   activeFilter === filter
-                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
-                    : "bg-background text-muted-foreground hover:bg-primary/10 hover:text-foreground"
+                    ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-102"
+                    : "bg-black/[0.02] border border-black/[0.04] text-muted-foreground hover:bg-black/[0.04] hover:text-foreground"
                 }`}
               >
                 {filter}
@@ -67,7 +70,8 @@ export function PopularClasses() {
             ))}
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {/* Grid Layout of Cards */}
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredCourses.map((item) => (
               <EnhancedClassCard
                 key={item.title}
@@ -83,6 +87,18 @@ export function PopularClasses() {
               />
             ))}
           </div>
+
+          {/* Catalog stats banner */}
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-black/[0.02] p-4 text-xs font-semibold text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <CalendarRange className="size-4 text-primary" />
+              <span>Next batch cohorts onboarded weekly. Reserve your trial spot early.</span>
+            </div>
+            <a href="#why-skillbag" className="text-primary hover:underline font-bold">
+              Learn about our vetting system →
+            </a>
+          </div>
+
         </div>
       </ScrollReveal>
 

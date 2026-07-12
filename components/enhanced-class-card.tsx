@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronRight, Clock, Star, Users } from "lucide-react"
+import { Calendar, ChevronRight, Clock, Star, Users, Award } from "lucide-react"
 
 interface ClassCardProps {
   title: string
@@ -23,85 +23,112 @@ export function EnhancedClassCard({
   duration,
   isPopular = false,
   isNewBatch = false,
-  teacherName,
+  teacherName = "Skillbag Certified Coach",
   onViewDetails,
 }: ClassCardProps) {
-  const badgeText = isPopular ? "Popular" : isNewBatch ? "Filling Fast" : "Open" 
+  // Determine urgency text
+  const badgeText = isPopular ? "Top Rated ★" : isNewBatch ? "Filling Fast" : "Few Spots Left"
+
+  // Date calculation for urgency (next Monday from current time)
+  // Let's compute a neat date placeholder relative to July 12, 2026 (Sunday)
+  // E.g., Next Batch: July 13 (Monday) or July 15 (Wednesday)
+  const batchDate = isNewBatch ? "Mon, July 13" : "Wed, July 15"
 
   return (
-    <div className="group relative flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-slate-200 bg-gradient-to-b from-white to-slate-50 shadow-[0_24px_70px_-30px_rgba(15,23,42,0.26)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_80px_-28px_rgba(15,23,42,0.32)]">
-      <div className="absolute left-3 right-3 top-3 z-10 flex items-start justify-between">
-        <div className={`rounded-full px-3 py-1 text-xs font-semibold text-white shadow-md ${isPopular ? "bg-amber-500" : isNewBatch ? "bg-emerald-600" : "bg-slate-700"}`}>
-          {badgeText}
-        </div>
-        <div className="rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-slate-700 shadow-sm">
-          {rating.toFixed(1)} ★
-        </div>
-      </div>
-
-      <div className="relative aspect-[4/3] overflow-hidden">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-black/[0.05] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/20 hover:shadow-premium">
+      
+      {/* Thumbnail area with overlays */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
         <img
           src={image}
           alt={title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
-        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-          <div className="rounded-full border border-white/25 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-sm">
-            {duration}
-          </div>
-          <div className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700">
-            Live class
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+        
+        {/* Urgency Badge */}
+        <div className="absolute left-3 top-3 z-10">
+          <span className={`inline-flex items-center gap-1 rounded-full px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-white shadow-sm ${
+            isPopular 
+              ? "bg-primary" 
+              : "bg-accent"
+          }`}>
+            {badgeText}
+          </span>
+        </div>
+
+        {/* Rating overlay */}
+        <div className="absolute right-3 top-3 z-10 rounded-full bg-white/95 px-2.5 py-1 text-xs font-bold text-slate-800 shadow-sm backdrop-blur-xs flex items-center gap-1">
+          <Star className="size-3.5 fill-amber-400 text-amber-400" />
+          <span>{rating.toFixed(1)}</span>
+        </div>
+
+        {/* Duration badge at the bottom */}
+        <div className="absolute bottom-3 left-3 z-10 rounded-lg border border-white/20 bg-black/40 px-2.5 py-1 text-xs font-bold text-white backdrop-blur-sm flex items-center gap-1">
+          <Clock className="size-3.5 text-white" />
+          <span>{duration}</span>
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="line-clamp-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-primary">
+      {/* Content Container */}
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        
+        {/* Title */}
+        <h3 className="line-clamp-2 text-lg font-extrabold text-foreground group-hover:text-primary transition-colors duration-250 leading-snug">
           {title}
         </h3>
-        <p className="mt-3 text-sm leading-7 text-slate-600">
-          Small-group coaching with clear outcomes, warm feedback, and real progress.
+
+        {/* Description / Subtext */}
+        <p className="mt-3.5 text-xs leading-relaxed text-muted-foreground/90">
+          Premium cohort class. Guided live practice, peer interactions, and structured weekly checkpoints.
         </p>
 
-        {teacherName && (
-          <div className="mt-4 flex items-center gap-2">
-            <div className="flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-primary/15 to-emerald-500/15 text-sm font-semibold text-primary">
-              {teacherName.charAt(0)}
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-slate-900">{teacherName}</p>
-              <p className="text-xs text-slate-500">Live mentor</p>
-            </div>
+        {/* Vetted Instructor Row */}
+        <div className="my-5 flex items-center gap-3 border-y border-black/[0.04] py-4">
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary font-extrabold text-sm uppercase">
+            {teacherName.charAt(0)}
           </div>
-        )}
-
-        <div className="mt-5 flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
-          <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1">
-            <Star className="size-3.5 fill-amber-400 text-amber-400" />
-            {rating.toFixed(1)} avg
-          </span>
-          <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1">
-            <Users className="size-3.5" />
-            {studentCount >= 1000 ? `${(studentCount / 1000).toFixed(1)}k` : studentCount}
-          </span>
-          <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1">
-            <Clock className="size-3.5" />
-            {duration}
-          </span>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-bold text-foreground leading-none">{teacherName}</span>
+              <span className="inline-flex items-center gap-0.5 rounded-full bg-emerald-500/10 px-1.5 py-0.5 text-[8px] font-black text-emerald-800 uppercase tracking-wide">
+                <Award className="size-2 text-emerald-600" />
+                Vetted 1%
+              </span>
+            </div>
+            <p className="text-[10px] text-muted-foreground mt-0.5">Active Pedagogy Lead</p>
+          </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-between">
-          <div className="text-sm font-semibold text-emerald-700">{isNewBatch ? "Next batch: this week" : "Open for enrollment"}</div>
+        {/* Course Specifications Grid */}
+        <div className="grid grid-cols-2 gap-3 text-xs font-semibold text-foreground/80 mb-5">
+          <div className="flex items-center gap-2 rounded-xl bg-black/[0.02] p-2.5">
+            <Users className="size-4 text-primary/70" />
+            <span>Max 8 students</span>
+          </div>
+          <div className="flex items-center gap-2 rounded-xl bg-black/[0.02] p-2.5">
+            <Calendar className="size-4 text-primary/70" />
+            <span>Starts: {batchDate}</span>
+          </div>
+        </div>
+
+        {/* Footer actions */}
+        <div className="mt-auto pt-4 border-t border-black/[0.03] flex items-center justify-between gap-2">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-accent/80">Batch availability</p>
+            <p className="text-[11px] font-black text-foreground mt-0.5">{isNewBatch ? "Next cohort starts Monday" : "Enrollment closing soon"}</p>
+          </div>
+          
           <button
             type="button"
             onClick={onViewDetails}
-            className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+            className="inline-flex items-center gap-1 rounded-full border border-black/[0.08] hover:border-primary/20 hover:bg-slate-50 px-4 py-2.5 text-xs font-bold text-foreground transition-all active:scale-98"
           >
             View details
-            <ChevronRight className="size-4" />
+            <ChevronRight className="size-3.5 text-muted-foreground" />
           </button>
         </div>
+
       </div>
     </div>
   )

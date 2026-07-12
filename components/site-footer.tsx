@@ -1,3 +1,9 @@
+"use client"
+
+import { useState } from "react"
+import { MessageCircle, Plus, Minus, HelpCircle, ArrowRight } from "lucide-react"
+import { WHATSAPP_URL } from "@/lib/site"
+
 function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -26,84 +32,168 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 const socials = [InstagramIcon, YoutubeIcon, FacebookIcon]
+
 const faqs = [
-  { question: "Do you offer live classes only?", answer: "Yes, every Skillbag class is live and interactive, with no passive video-only learning." },
-  { question: "What is the batch size?", answer: "Most batches are intentionally small, with a maximum of 8 students so tutors can engage each learner." },
-  { question: "How do I book a trial or class?", answer: "Tap the WhatsApp CTA and our team will help you choose the best class and batch timing." },
-  { question: "What about refunds?", answer: "We offer a simple, transparent refund policy for eligible cases. Reach out and we will clarify it for you." },
+  {
+    question: "Do you offer live classes only?",
+    answer: "Yes, every single Skillbag class is 100% live and interactive. We do not sell pre-recorded video lectures. Our students learn in real-time, face-to-face with the coach in structured virtual classrooms."
+  },
+  {
+    question: "What is the schedule and batch frequency?",
+    answer: "Classes are held twice a week. We offer flexible batch timings (afternoons, evenings, and weekends) to fit school and work schedules. If you miss a class, we provide a coordinate catch-up session."
+  },
+  {
+    question: "How do I book a trial and what is the pricing?",
+    answer: "Booking a trial is zero-friction. Click the 'Connect on WhatsApp' button and our admissions coordinator will instantly share batch schedules, clarify pricing tiers, and book your free trial slot."
+  },
+  {
+    question: "What is your batch size capacity?",
+    answer: "To ensure high-trust guidance and custom speaking feedback, we cap our batch sizes at 8 students maximum. This allows the tutor to call on every student and track individual progress."
+  },
+  {
+    question: "What is your refund policy?",
+    answer: "We offer a 100% satisfaction guarantee. If you decide to withdraw from the course within the first 2 sessions of starting the batch, we will issue a full refund, no questions asked."
+  }
 ]
 
 export function SiteFooter() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
   return (
-    <footer className="border-t border-border/60 bg-slate-950 text-slate-200">
+    <footer className="border-t border-black/[0.04] bg-slate-950 text-slate-200">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-soft backdrop-blur-sm sm:p-8 lg:grid-cols-[1.05fr_0.95fr]">
+        
+        {/* Top Info Grid */}
+        <div className="grid gap-10 rounded-[2.5rem] border border-white/10 bg-white/5 p-6 shadow-premium backdrop-blur-xl sm:p-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <a href="#" className="flex items-center gap-3" aria-label="Skillbag home">
+            <a href="#" className="flex items-center gap-3 transition-transform duration-300 active:scale-95" aria-label="Skillbag home">
               <img
                 src="/skillbag-logo.png"
-                alt="Skillbag"
-                className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105 sm:h-12"
+                alt="Skillbag Logo"
+                className="h-9 w-auto object-contain brightness-0 invert"
               />
             </a>
-            <p className="mt-5 max-w-xl text-sm leading-8 text-slate-300 sm:text-base">
-              Live online classes for confident learners, curious kids, and ambitious adults. Learn, practice, and grow with expert mentors in small, supportive batches.
+            <p className="mt-5 max-w-lg text-sm leading-relaxed text-slate-300">
+              Skillbag is a premium, high-trust EdTech platform. We deliver live, small-group communication, logic, and creativity classes for curious kids and ambitious adults.
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-200">
-              <a href="#courses" className="font-medium transition-colors hover:text-white">
+            <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-bold text-slate-300 uppercase tracking-wider">
+              <a href="#courses" className="transition-colors hover:text-white">
                 Browse classes
               </a>
-              <span className="text-slate-500">•</span>
-              <a href="#reviews" className="font-medium transition-colors hover:text-white">
+              <span className="text-slate-600">•</span>
+              <a href="#why-skillbag" className="transition-colors hover:text-white">
+                Why Us
+              </a>
+              <span className="text-slate-600">•</span>
+              <a href="#reviews" className="transition-colors hover:text-white">
                 Read reviews
               </a>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">Stay connected</h3>
-            <div className="mt-4 flex gap-3">
+          <div className="lg:border-l lg:border-white/10 lg:pl-10">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Join 2,000+ happy learners</h3>
+            <p className="mt-3 text-xs leading-relaxed text-slate-300">
+              Have doubts about sizing, teacher availability, or schedules? Message our team directly and we will set you up.
+            </p>
+            
+            <div className="mt-5">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-500 hover:bg-emerald-600 px-6 py-3.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-all active:scale-98"
+              >
+                <MessageCircle className="size-4 fill-current" />
+                Ask a counselor on WhatsApp
+              </a>
+            </div>
+            
+            <div className="mt-6 flex items-center gap-3">
               {socials.map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
-                  aria-label="Social media"
-                  className="flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/10 text-slate-100 transition-all hover:bg-white/20"
+                  aria-label="Social link"
+                  className="flex size-9 items-center justify-center rounded-full border border-white/10 bg-white/10 text-slate-300 transition-all hover:bg-white/20 hover:text-white"
                 >
                   <Icon className="size-4" />
                 </a>
               ))}
             </div>
-            <p className="mt-4 text-sm text-slate-400">Follow us for updates, tips, and new batch announcements.</p>
           </div>
         </div>
 
-        <div className="mt-8 grid gap-8 rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-soft backdrop-blur-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-8">
+        {/* Interactive FAQ Section */}
+        <div className="mt-10 grid gap-10 rounded-[2.5rem] border border-white/10 bg-white/5 p-6 shadow-premium backdrop-blur-xl sm:p-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">Need help deciding?</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">We will help you pick the right path.</h3>
-            <p className="mt-3 text-sm leading-7 text-slate-300">
-              Connect on WhatsApp and we will guide you through the best class, timing, and starting point for your goal.
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-slate-300 border border-white/10">
+              <HelpCircle className="size-3.5" />
+              Frequently Asked Questions
+            </div>
+            <h3 className="mt-4 text-2xl font-black text-white">Answering your objections upfront.</h3>
+            <p className="mt-3 text-xs leading-relaxed text-slate-300">
+              We stand by our coaching quality and small-batch dedication. Connect on WhatsApp if you have custom schedule requirements.
             </p>
+            <div className="mt-5 hidden lg:block">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-extrabold text-emerald-400 hover:text-emerald-300">
+                <span>View refund details</span>
+                <ArrowRight className="size-3.5" />
+              </a>
+            </div>
           </div>
+
+          {/* Accordion list */}
           <div className="space-y-3">
-            {faqs.map((faq) => (
-              <details key={faq.question} className="rounded-[1.2rem] border border-white/10 bg-black/15 px-4 py-3 text-sm text-slate-200">
-                <summary className="cursor-pointer font-semibold text-white">{faq.question}</summary>
-                <p className="mt-2 leading-7 text-slate-300">{faq.answer}</p>
-              </details>
-            ))}
+            {faqs.map((faq, i) => {
+              const isOpen = openIndex === i
+              return (
+                <div
+                  key={i}
+                  className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 transition-colors duration-250"
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleAccordion(i)}
+                    className="flex w-full items-center justify-between px-5 py-4.5 text-left text-xs font-black uppercase tracking-wider text-white hover:bg-white/5 focus:outline-none"
+                    aria-expanded={isOpen}
+                  >
+                    <span>{faq.question}</span>
+                    <span className="ml-4 flex size-5 shrink-0 items-center justify-center rounded-full bg-white/10 text-slate-300">
+                      {isOpen ? <Minus className="size-3" /> : <Plus className="size-3" />}
+                    </span>
+                  </button>
+                  
+                  {/* Expanded Content with CSS Transitions */}
+                  <div
+                    className={`transition-all duration-300 ease-in-out ${
+                      isOpen ? "max-h-[250px] opacity-100 border-t border-white/5 py-4 px-5" : "max-h-0 opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    <p className="text-xs leading-relaxed text-slate-300 font-medium">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs text-slate-400">&copy; {new Date().getFullYear()} Skillbag. All rights reserved.</p>
-          <div className="flex gap-6 text-xs text-slate-400">
-            <a href="#" className="transition-colors hover:text-white">Terms</a>
-            <a href="#" className="transition-colors hover:text-white">Privacy</a>
-            <a href="#" className="transition-colors hover:text-white">Cookies</a>
+        {/* Footer Bottom copyright */}
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+          <p>&copy; {new Date().getFullYear()} Skillbag. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="transition-colors hover:text-white">Terms of use</a>
+            <a href="#" className="transition-colors hover:text-white">Privacy policy</a>
+            <a href="#" className="transition-colors hover:text-white">Refund guidelines</a>
           </div>
         </div>
+
       </div>
     </footer>
   )

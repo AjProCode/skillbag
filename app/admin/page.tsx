@@ -263,9 +263,9 @@ export default function AdminPage() {
               </span>
             )}
             {status === "error" && (
-              <span className="text-xs font-bold text-red-600 flex items-center gap-1" title={errorMessage}>
-                <AlertCircle className="size-4" />
-                Error saving changes.
+              <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                <AlertCircle className="size-4 shrink-0" />
+                <span>Error: {errorMessage}</span>
               </span>
             )}
 

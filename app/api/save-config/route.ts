@@ -4,6 +4,15 @@ import { doc, setDoc } from "firebase/firestore"
 
 export async function POST(request: Request) {
   try {
+    // Check if credentials are loaded on the server
+    if (!process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID) {
+      console.error("Firebase config keys are missing on Next.js server. Restart your dev server!")
+      return NextResponse.json(
+        { error: "Firebase credentials not loaded. Please restart your dev server (npm run dev)." },
+        { status: 500 }
+      )
+    }
+
     const body = await request.json()
 
     // Basic structure validation to prevent empty saves

@@ -21,7 +21,7 @@ export function SiteHeader() {
           <img
             src="/skillbag-logo.png"
             alt="Skillbag Logo"
-            className="h-8 w-auto object-contain transition-transform duration-300 hover:scale-210 sm:h-9"
+            className="h-8 w-auto object-contain transition-transform duration-300 hover:scale-300 sm:h-9"
           />
         </a>
 

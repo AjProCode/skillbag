@@ -6,9 +6,10 @@ export async function POST(request: Request) {
   try {
     // Check if credentials are loaded on the server
     if (!process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID) {
-      console.error("Firebase config keys are missing on Next.js server. Restart your dev server!")
+      const loadedKeys = Object.keys(process.env).filter(k => k.startsWith("NEXT_PUBLIC"))
+      console.error("Firebase config keys are missing on Next.js server. Loaded keys:", loadedKeys)
       return NextResponse.json(
-        { error: "Firebase credentials not loaded. Please restart your dev server (npm run dev)." },
+        { error: `Firebase credentials not loaded (Project ID is undefined). Server env keys loaded: ${loadedKeys.join(", ") || "None"}. Please restart your dev server.` },
         { status: 500 }
       )
     }

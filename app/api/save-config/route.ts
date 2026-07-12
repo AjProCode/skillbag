@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
-import fs from "fs/promises"
-import path from "path"
+import { db } from "@/lib/firebase"
+import { doc, setDoc } from "firebase/firestore"
 
 export async function POST(request: Request) {
   try {
@@ -14,31 +14,11 @@ export async function POST(request: Request) {
       )
     }
 
-    const filePath = path.join(process.cwd(), "lib", "landing-page-data.json")
-    
-    try {
-      // 1. Try direct write to local file
-      await fs.writeFile(filePath, JSON.stringify(body, null, 2), "utf-8")
-      return NextResponse.json({ success: true })
-    } catch (writeError: any) {
-      console.warn("Direct write failed, trying FS Helper daemon fallback:", writeError.message)
-      
-      // 2. If EROFS or permission error occurs, try writing via FS Helper daemon
-      const response = await fetch("http://127.0.0.1:3001/save", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      })
+    // Save configuration payload to Cloud Firestore
+    const docRef = doc(db, "landingPage", "config")
+    await setDoc(docRef, body)
 
-      if (!response.ok) {
-        const errData = await response.json()
-        throw new Error(errData.error || "FS Helper write failed")
-      }
-
-      return NextResponse.json({ success: true })
-    }
+    return NextResponse.json({ success: true })
   } catch (error: any) {
     console.error("CMS Save Error:", error)
     return NextResponse.json(

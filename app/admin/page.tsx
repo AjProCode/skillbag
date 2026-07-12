@@ -17,6 +17,8 @@ import {
   AlertCircle 
 } from "lucide-react"
 import { initialData, LandingPageData, CourseItem, TestimonialItem, FaqItem } from "@/lib/landing-page-data"
+import { db } from "@/lib/firebase"
+import { doc, getDoc } from "firebase/firestore"
 
 type EditorTab = "hero" | "pas" | "courses" | "testimonials" | "faqs"
 
@@ -28,40 +30,25 @@ export default function AdminPage() {
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle")
   const [errorMessage, setErrorMessage] = useState("")
 
-  // Load from localStorage on mount
-  useState(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("skillbag_cms_data")
-      if (saved) {
-        try {
-          // Initialize state directly from localStorage if present
-          // Next.js client initialization handles this cleanly on client render
-        } catch (e) {}
-      }
-    }
-  })
-
-  // Hook to update state on client mount to avoid hydration mismatch
+  // Load config from Firestore on mount
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("skillbag_cms_data")
-      if (saved) {
-        try {
-          setData(JSON.parse(saved))
-        } catch (e) {}
+    async function loadConfig() {
+      try {
+        const docRef = doc(db, "landingPage", "config")
+        const docSnap = await getDoc(docRef)
+        if (docSnap.exists()) {
+          setData(docSnap.data() as LandingPageData)
+        }
+      } catch (err) {
+        console.error("Failed to load CMS config from Firestore in Admin Page:", err)
       }
     }
+    loadConfig()
   }, [])
 
   const handleSave = async () => {
     setStatus("saving")
     setIsReadOnly(false)
-    
-    // 1. Write to browser local storage first so changes are active immediately on this device
-    if (typeof window !== "undefined") {
-      localStorage.setItem("skillbag_cms_data", JSON.stringify(data))
-    }
-
     try {
       const response = await fetch("/api/save-config", {
         method: "POST",
@@ -81,17 +68,8 @@ export default function AdminPage() {
       router.refresh()
     } catch (err: any) {
       console.error("Save error caught:", err)
-      
-      // Check if this is a read-only file system restriction (EROFS)
-      const errText = err.message || ""
-      if (errText.includes("EROFS") || errText.includes("read-only")) {
-        setIsReadOnly(true)
-        setStatus("saved") // We treat this as a successful client save
-        setTimeout(() => setStatus("idle"), 8000)
-      } else {
-        setStatus("error")
-        setErrorMessage(errText || "An unknown error occurred")
-      }
+      setStatus("error")
+      setErrorMessage(err.message || "An unknown error occurred")
     }
   }
 

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import { db } from "./firebase"
+import { doc, getDoc } from "firebase/firestore"
 import landingPageData from "./landing-page-data.json"
 
 export interface HeroPersona {
@@ -77,16 +79,20 @@ export function useLandingPageData() {
   const [data, setData] = useState<LandingPageData>(initialData)
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("skillbag_cms_data")
-      if (saved) {
-        try {
-          setData(JSON.parse(saved))
-        } catch (e) {
-          console.error("Failed to parse saved CMS data:", e)
+    async function loadConfig() {
+      try {
+        const docRef = doc(db, "landingPage", "config")
+        const docSnap = await getDoc(docRef)
+        
+        if (docSnap.exists()) {
+          setData(docSnap.data() as LandingPageData)
         }
+      } catch (err) {
+        console.error("Failed to load CMS config from Firestore:", err)
       }
     }
+
+    loadConfig()
   }, [])
 
   return data

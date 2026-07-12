@@ -51,11 +51,7 @@ export default function AdminPage() {
         console.warn("CMS config fallback to static JSON:", err)
       }
     }
-    
-    // Only attempt Firestore query if credentials are set in .env.local
-    if (process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID) {
-      loadConfig()
-    }
+    loadConfig()
   }, [])
 
   const handleSave = async () => {

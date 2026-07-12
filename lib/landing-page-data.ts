@@ -104,10 +104,7 @@ export function useLandingPageData() {
       }
     }
 
-    // Only attempt Firestore query if credentials are set in .env.local
-    if (process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID) {
-      loadConfig()
-    }
+    loadConfig()
   }, [])
 
   return data

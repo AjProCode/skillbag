@@ -31,22 +31,27 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border/60 bg-muted/30">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-12 sm:grid-cols-2">
+        <div className="grid gap-12 rounded-[2rem] border border-border/60 bg-card/70 p-6 shadow-soft backdrop-blur-sm sm:grid-cols-[1.1fr_0.9fr] sm:p-8">
           <div>
-            <a href="#" className="flex items-center" aria-label="Skillbag home">
-              <img src="/skillbag-logo.png" alt="Skillbag" className="h-12 w-auto transition-transform hover:scale-105" />
+            <a href="#" className="flex items-center gap-3" aria-label="Skillbag home">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-sm font-semibold text-primary-foreground shadow-soft">
+                S
+              </div>
+              <div className="leading-tight">
+                <p className="text-sm font-semibold text-foreground">Skillbag</p>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">Live learning</p>
+              </div>
             </a>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Interactive online classes for every age. Learn, practice and grow — from
-              anywhere in the world.
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Interactive online classes for every age. Learn, practice and grow — from anywhere in the world.
             </p>
-            <div className="mt-6 flex items-center gap-4">
-              <a href="#" className="text-sm font-medium text-foreground transition-colors hover:text-accent">
+            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm">
+              <a href="#contact" className="font-medium text-foreground transition-colors hover:text-accent">
                 Contact us
               </a>
               <span className="text-muted-foreground">•</span>
-              <a href="#" className="text-sm font-medium text-foreground transition-colors hover:text-accent">
-                Support
+              <a href="#courses" className="font-medium text-foreground transition-colors hover:text-accent">
+                Browse classes
               </a>
             </div>
           </div>
@@ -65,16 +70,12 @@ export function SiteFooter() {
                 </a>
               ))}
             </div>
-            <p className="mt-4 text-xs text-muted-foreground">
-              Follow us for updates and tips
-            </p>
+            <p className="mt-4 text-xs text-muted-foreground">Follow us for updates, tips, and new batch announcements.</p>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 sm:flex-row">
-          <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Skillbag. All rights reserved.
-          </p>
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 sm:flex-row">
+          <p className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} Skillbag. All rights reserved.</p>
           <div className="flex gap-6 text-xs text-muted-foreground">
             <a href="#" className="transition-colors hover:text-foreground hover:underline decoration-1 underline-offset-4">
               Terms

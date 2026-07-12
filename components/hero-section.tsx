@@ -1,94 +1,128 @@
-import { MessageCircle, Play, Video } from "lucide-react"
+import { MessageCircle, Play, Sparkles, Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { WHATSAPP_URL } from "@/lib/site"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export function HeroSection() {
   return (
-    <section className="mx-auto max-w-6xl px-4 pb-12 pt-14 sm:px-6 lg:pt-20">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        {/* Copy */}
+    <section id="home" className="mx-auto max-w-6xl px-4 pb-12 pt-14 sm:px-6 lg:pt-20">
+      <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div className="order-2 lg:order-1">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex size-2 rounded-full bg-primary"></span>
-            </span>
-            New classes starting soon
-          </div>
-          <h1 className="mt-6 text-balance text-5xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Learn real skills.{" "}
-            <span className="bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent">
-              Live online.
-            </span>
-          </h1>
-          <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Interactive online classes for every age. Learn. Practice. Grow. From anywhere in the world.
-          </p>
+          <ScrollReveal delay={80}>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex size-2 rounded-full bg-primary"></span>
+              </span>
+              New classes starting soon
+            </div>
+          </ScrollReveal>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button
-              render={<a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" />}
-              size="lg"
-              className="rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30"
-            >
-              <MessageCircle className="size-5" />
-              Connect on WhatsApp
-            </Button>
-          </div>
+          <ScrollReveal delay={120}>
+            <h1 className="mt-6 text-balance text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              Learn real skills. {" "}
+              <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-amber-500 bg-clip-text text-transparent">
+                Live online.
+              </span>
+            </h1>
+          </ScrollReveal>
 
-          <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                <div className="size-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-background"></div>
-                <div className="size-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-background"></div>
-                <div className="size-8 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-background"></div>
+          <ScrollReveal delay={160}>
+            <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+              Discover live, high-impact classes for every age — from public speaking and creative writing to chess, robotics, and music.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button
+                render={<a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" />}
+                size="lg"
+                className="rounded-full bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30"
+              >
+                <MessageCircle className="size-5" />
+                Connect on WhatsApp
+              </Button>
+              <a href="#courses" className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/70 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur-sm transition-all hover:border-primary/30 hover:text-primary">
+                <Play className="size-4" />
+                Explore courses
+              </a>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={240}>
+            <div className="mt-10 flex flex-wrap items-center gap-6 rounded-2xl border border-border/70 bg-card/70 p-4 text-sm text-muted-foreground shadow-soft backdrop-blur-sm">
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  <div className="size-9 rounded-full border-2 border-background bg-gradient-to-br from-blue-400 to-blue-600"></div>
+                  <div className="size-9 rounded-full border-2 border-background bg-gradient-to-br from-violet-400 to-violet-600"></div>
+                  <div className="size-9 rounded-full border-2 border-background bg-gradient-to-br from-amber-400 to-amber-600"></div>
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">2,000+ learners</p>
+                  <p>joined this year</p>
+                </div>
               </div>
-              <span className="font-medium text-foreground">2,000+</span>
-              <span>learners</span>
+              <div className="h-10 w-px bg-border"></div>
+              <div className="flex items-center gap-2">
+                <span className="text-amber-500">★★★★★</span>
+                <div>
+                  <p className="font-semibold text-foreground">4.9/5 rating</p>
+                  <p>from happy families</p>
+                </div>
+              </div>
             </div>
-            <div className="h-4 w-px bg-border"></div>
-            <div className="flex items-center gap-1">
-              <span className="text-yellow-500">★★★★★</span>
-              <span className="font-medium text-foreground">4.9</span>
-              <span>rating</span>
-            </div>
-          </div>
+          </ScrollReveal>
         </div>
 
-        {/* Image */}
         <div className="relative order-1 lg:order-2">
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl"></div>
-            <div className="relative overflow-hidden rounded-3xl border border-border/60 shadow-2xl">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP1p5TPbd7dVdU1eLxIGv_lG852RyzSbRC4biwQl7Hsg&s=10"
-                alt="A student smiling and waving during a live online class on her laptop"
-                className="aspect-[4/3] w-full object-cover object-[center_20%] transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-          </div>
-          <div className="absolute -right-4 -top-4 flex items-center gap-3 rounded-2xl bg-card/95 px-4 py-3 shadow-xl backdrop-blur-sm border border-border/50">
-            <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent/80 text-white shadow-lg">
-              <Video className="size-5" />
-            </span>
-            <div className="leading-tight">
-              <p className="text-sm font-semibold text-foreground">Live &amp; Interactive</p>
-              <p className="text-xs text-muted-foreground">Real-time classes</p>
-            </div>
-          </div>
-          <div className="absolute -bottom-4 -left-4 rounded-2xl bg-card/95 px-4 py-3 shadow-xl backdrop-blur-sm border border-border/50">
-            <div className="flex items-center gap-3">
-              <div className="flex size-10 items-center justify-center rounded-xl bg-green-500/10 text-green-600">
-                <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
+          <ScrollReveal delay={80}>
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-r from-primary/20 via-violet-500/20 to-amber-400/20 blur-3xl"></div>
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/70 shadow-[0_30px_80px_-32px_rgba(15,23,42,0.45)]">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP1p5TPbd7dVdU1eLxIGv_lG852RyzSbRC4biwQl7Hsg&s=10"
+                  alt="A student smiling during a live online class"
+                  className="aspect-[4/3] w-full object-cover object-[center_20%] transition-transform duration-700 hover:scale-105"
+                />
               </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={180}>
+            <div className="absolute -right-4 -top-4 flex items-center gap-3 rounded-2xl border border-border/60 bg-card/95 px-4 py-3 shadow-xl backdrop-blur-sm">
+              <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-lg">
+                <Video className="size-5" />
+              </span>
               <div className="leading-tight">
-                <p className="text-sm font-semibold text-foreground">Expert Teachers</p>
-                <p className="text-xs text-muted-foreground">Verified & trained</p>
+                <p className="text-sm font-semibold text-foreground">Live &amp; Interactive</p>
+                <p className="text-xs text-muted-foreground">Real-time classes</p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={220}>
+            <div className="absolute -bottom-4 -left-4 rounded-2xl border border-border/60 bg-card/95 px-4 py-3 shadow-xl backdrop-blur-sm">
+              <div className="flex items-center gap-3">
+                <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600">
+                  <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="leading-tight">
+                  <p className="text-sm font-semibold text-foreground">Expert Teachers</p>
+                  <p className="text-xs text-muted-foreground">Verified & trained</p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={260}>
+            <div className="absolute left-4 top-4 rounded-full border border-white/50 bg-white/70 px-3 py-2 text-sm font-semibold text-primary shadow-lg backdrop-blur-sm">
+              <span className="mr-2 inline-flex size-2 rounded-full bg-emerald-500"></span>
+              Flexible timings
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

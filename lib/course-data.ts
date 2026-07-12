@@ -26,8 +26,8 @@ export const courses: CourseItem[] = [
     teacherName: "Skillbag Certified Coach",
     description:
       "Learn spatial pattern recognition, analytical finger tricks, and speed-solving algorithms in an engaging, interactive live online class environment.",
-    level: "Beginner to Advanced",
-    lessons: "24 live sessions",
+    level: "3*3",
+    lessons: "6 live sessions",
     format: "Live online classes + interactive practice drills",
     outcomes: [
       "Solve the 3x3 cube confidently from scratch",
@@ -41,13 +41,13 @@ export const courses: CourseItem[] = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsgYL6hkaqZfnV17aVX49ynfSY-tjOjUNRS74RjXYehQ&s=10",
     rating: 4.8,
     studentCount: 890,
-    duration: "6 weeks",
+    duration: "4 weeks",
     isNewBatch: true,
     teacherName: "Skillbag Speech Trainer",
     description:
       "Build real speaking confidence for presentations, conversations, and public scenarios through live interaction and constructive feedback loop exercises.",
     level: "Beginner",
-    lessons: "18 live sessions",
+    lessons: "12 live sessions",
     format: "Live online coaching + active video feedback",
     outcomes: [
       "Speak with real clarity and projection",

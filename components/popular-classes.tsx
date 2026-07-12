@@ -31,7 +31,7 @@ export function PopularClasses() {
       const haystack = `${course.title} ${course.description} ${course.level}`.toLowerCase()
       return keywords[activeFilter].some((keyword) => haystack.includes(keyword.toLowerCase()))
     })
-  }, [activeFilter])
+  }, [activeFilter, courses])
 
   return (
     <section id="courses" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

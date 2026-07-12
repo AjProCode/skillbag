@@ -6,13 +6,13 @@ import { Button } from "@/components/ui/button"
 import { WHATSAPP_URL } from "@/lib/site"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
-import { initialData } from "@/lib/landing-page-data"
-
-const personas = initialData.hero
+import { useLandingPageData } from "@/lib/landing-page-data"
 
 type PersonaKey = "kids" | "adults"
 
 export function HeroSection() {
+  const data = useLandingPageData()
+  const personas = data.hero
   const [persona, setPersona] = useState<PersonaKey>("kids")
   const current = personas[persona]
 
@@ -22,7 +22,7 @@ export function HeroSection() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           
           {/* Left Column: Text Content & CTAs */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
             <ScrollReveal delay={50}>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-xs font-bold text-primary uppercase tracking-wider">
                 <Sparkles className="size-3.5 fill-current" />
@@ -102,7 +102,7 @@ export function HeroSection() {
           </div>
 
           {/* Right Column: Student-Tutor Connected Composite Graphic */}
-          <div className="relative order-1 lg:order-2 flex items-center justify-center py-6">
+          <div className="relative order-2 lg:order-2 flex items-center justify-center py-6">
             <div className="relative w-full max-w-[460px] aspect-[4/3] rounded-[2rem] bg-slate-100/50 p-2 border border-black/[0.03]">
               
               {/* Decorative radial glows */}
@@ -128,7 +128,7 @@ export function HeroSection() {
               </svg>
 
               {/* Left Panel: Student Card */}
-              <div className="absolute left-2 top-8 z-20 w-[190px] rounded-2xl border border-black/[0.05] bg-white p-2 shadow-lg transition-transform duration-300 hover:scale-103 hover:-rotate-1 -rotate-2">
+              <div className="absolute left-1 sm:left-2 top-4 sm:top-8 z-20 w-[130px] xs:w-[160px] sm:w-[190px] rounded-2xl border border-black/[0.05] bg-white p-2 shadow-lg transition-transform duration-300 hover:scale-103 hover:-rotate-1 -rotate-2">
                 <div className="relative overflow-hidden rounded-xl aspect-[4/5] bg-slate-100">
                   <img
                     src={current.studentImage}
@@ -142,7 +142,7 @@ export function HeroSection() {
               </div>
 
               {/* Right Panel: Tutor Card */}
-              <div className="absolute right-2 bottom-6 z-20 w-[190px] rounded-2xl border border-black/[0.05] bg-white p-2 shadow-lg transition-transform duration-300 hover:scale-103 hover:rotate-1 rotate-2">
+              <div className="absolute right-1 sm:right-2 bottom-4 sm:bottom-6 z-20 w-[130px] xs:w-[160px] sm:w-[190px] rounded-2xl border border-black/[0.05] bg-white p-2 shadow-lg transition-transform duration-300 hover:scale-103 hover:rotate-1 rotate-2">
                 <div className="relative overflow-hidden rounded-xl aspect-[4/5] bg-slate-100">
                   <img
                     src={current.tutorImage}
@@ -159,14 +159,14 @@ export function HeroSection() {
               </div>
 
               {/* Interactive Speech Bubble: Student (Top Right of Student card) */}
-              <div className="absolute left-6 -top-2 z-30 max-w-[210px] rounded-2xl rounded-tl-none bg-indigo-900 px-4 py-3 text-xs text-white shadow-md leading-relaxed animate-float">
-                <p className="font-semibold opacity-75 mb-0.5 text-[10px]">{current.studentName}</p>
+              <div className="absolute left-2 sm:left-6 -top-4 sm:-top-2 z-30 max-w-[130px] sm:max-w-[210px] rounded-2xl rounded-tl-none bg-indigo-900 px-3 py-2 sm:px-4 sm:py-3 text-[10px] sm:text-xs text-white shadow-md leading-relaxed animate-float">
+                <p className="font-semibold opacity-75 mb-0.5 text-[8px] sm:text-[10px]">{current.studentName}</p>
                 <p>{current.studentBubble}</p>
               </div>
 
               {/* Interactive Speech Bubble: Tutor (Bottom Left of Tutor card) */}
-              <div className="absolute right-6 -bottom-4 z-30 max-w-[210px] rounded-2xl rounded-br-none border border-black/[0.04] bg-white px-4 py-3 text-xs text-slate-800 shadow-md leading-relaxed">
-                <p className="font-semibold text-primary mb-0.5 text-[10px]">{current.tutorName}</p>
+              <div className="absolute right-2 sm:right-6 -bottom-6 sm:-bottom-4 z-30 max-w-[130px] sm:max-w-[210px] rounded-2xl rounded-br-none border border-black/[0.04] bg-white px-3 py-2 sm:px-4 sm:py-3 text-[10px] sm:text-xs text-slate-800 shadow-md leading-relaxed">
+                <p className="font-semibold text-primary mb-0.5 text-[8px] sm:text-[10px]">{current.tutorName}</p>
                 <p>{current.tutorBubble}</p>
               </div>
             </div>

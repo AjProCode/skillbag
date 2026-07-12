@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import landingPageData from "./landing-page-data.json"
 
 export interface HeroPersona {
@@ -71,3 +72,23 @@ export interface LandingPageData {
 }
 
 export const initialData = landingPageData as LandingPageData
+
+export function useLandingPageData() {
+  const [data, setData] = useState<LandingPageData>(initialData)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("skillbag_cms_data")
+      if (saved) {
+        try {
+          setData(JSON.parse(saved))
+        } catch (e) {
+          console.error("Failed to parse saved CMS data:", e)
+        }
+      }
+    }
+  }, [])
+
+  return data
+}
+

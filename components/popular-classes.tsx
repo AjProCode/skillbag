@@ -4,17 +4,17 @@ import { useMemo, useState } from "react"
 import { Sparkles, CalendarRange } from "lucide-react"
 import { EnhancedClassCard } from "@/components/enhanced-class-card"
 import { CourseDetailsModal } from "@/components/course-details-modal"
-import { initialData } from "@/lib/landing-page-data"
+import { useLandingPageData, CourseItem } from "@/lib/landing-page-data"
 import { ScrollReveal } from "@/components/scroll-reveal"
-
-const courses = initialData.courses
 
 const filters = ["All", "Kids Corner", "Communication", "Music", "Logic & STEM"] as const
 
 type Filter = (typeof filters)[number]
 
 export function PopularClasses() {
-  const [activeCourse, setActiveCourse] = useState<null | (typeof courses)[number]>(null)
+  const data = useLandingPageData()
+  const courses = data.courses
+  const [activeCourse, setActiveCourse] = useState<null | CourseItem>(null)
   const [activeFilter, setActiveFilter] = useState<Filter>("All")
 
   const filteredCourses = useMemo(() => {

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { 
   Save, 
@@ -24,11 +24,44 @@ export default function AdminPage() {
   const router = useRouter()
   const [data, setData] = useState<LandingPageData>(initialData)
   const [activeTab, setActiveTab] = useState<EditorTab>("hero")
+  const [isReadOnly, setIsReadOnly] = useState(false)
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle")
   const [errorMessage, setErrorMessage] = useState("")
 
+  // Load from localStorage on mount
+  useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("skillbag_cms_data")
+      if (saved) {
+        try {
+          // Initialize state directly from localStorage if present
+          // Next.js client initialization handles this cleanly on client render
+        } catch (e) {}
+      }
+    }
+  })
+
+  // Hook to update state on client mount to avoid hydration mismatch
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("skillbag_cms_data")
+      if (saved) {
+        try {
+          setData(JSON.parse(saved))
+        } catch (e) {}
+      }
+    }
+  }, [])
+
   const handleSave = async () => {
     setStatus("saving")
+    setIsReadOnly(false)
+    
+    // 1. Write to browser local storage first so changes are active immediately on this device
+    if (typeof window !== "undefined") {
+      localStorage.setItem("skillbag_cms_data", JSON.stringify(data))
+    }
+
     try {
       const response = await fetch("/api/save-config", {
         method: "POST",
@@ -47,9 +80,18 @@ export default function AdminPage() {
       setTimeout(() => setStatus("idle"), 3000)
       router.refresh()
     } catch (err: any) {
-      console.error(err)
-      setStatus("error")
-      setErrorMessage(err.message || "An unknown error occurred")
+      console.error("Save error caught:", err)
+      
+      // Check if this is a read-only file system restriction (EROFS)
+      const errText = err.message || ""
+      if (errText.includes("EROFS") || errText.includes("read-only")) {
+        setIsReadOnly(true)
+        setStatus("saved") // We treat this as a successful client save
+        setTimeout(() => setStatus("idle"), 8000)
+      } else {
+        setStatus("error")
+        setErrorMessage(errText || "An unknown error occurred")
+      }
     }
   }
 
@@ -257,10 +299,17 @@ export default function AdminPage() {
               </span>
             )}
             {status === "saved" && (
-              <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
-                <Check className="size-4" />
-                Changes published successfully!
-              </span>
+              <div className="text-xs font-bold text-emerald-600 flex flex-col items-end">
+                <span className="flex items-center gap-1">
+                  <Check className="size-4" />
+                  Changes saved successfully!
+                </span>
+                {isReadOnly && (
+                  <span className="text-[10px] text-amber-600 font-extrabold mt-0.5 max-w-[280px] text-right">
+                    ⚠️ Server is read-only (EROFS). Fallback saved to browser memory.
+                  </span>
+                )}
+              </div>
             )}
             {status === "error" && (
               <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
@@ -287,8 +336,7 @@ export default function AdminPage() {
         <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
           
           {/* Sidebar Nav */}
-          <aside className="space-y-1.5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3.5 mb-2">CMS SECTION EDITORS</p>
+          <aside className="flex flex-row flex-wrap lg:flex-col gap-2 pb-4 lg:pb-0">
             {[
               { id: "hero", label: "Hero Persona Switcher", icon: Sparkles },
               { id: "pas", label: "PAS Compare Grid", icon: AlertCircle },
@@ -302,14 +350,14 @@ export default function AdminPage() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as EditorTab)}
-                  className={`w-full flex items-center gap-2.5 rounded-2xl px-4 py-3 text-left text-xs font-bold transition-all ${
+                  className={`flex-shrink-0 flex items-center gap-2 rounded-2xl px-4 py-3 text-xs font-bold transition-all cursor-pointer ${
                     isActive 
-                      ? "bg-white border border-slate-200 text-indigo-900 shadow-sm"
-                      : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50"
+                      ? "bg-indigo-900 border border-indigo-950 text-white shadow-sm animate-pulse"
+                      : "bg-white border border-slate-200 text-slate-500 hover:text-slate-800 hover:bg-slate-200/50"
                   }`}
                 >
-                  <Icon className={`size-4 ${isActive ? "text-indigo-600" : ""}`} />
-                  {tab.label}
+                  <Icon className="size-4 shrink-0" />
+                  <span className="whitespace-nowrap">{tab.label}</span>
                 </button>
               )
             })}

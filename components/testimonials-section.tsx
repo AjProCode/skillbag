@@ -1,16 +1,17 @@
+"use client"
+
 import { Play, Star, Sparkles } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
-
-import { initialData } from "@/lib/landing-page-data"
-
-const testimonials = initialData.testimonials
-
-// Split testimonials into 3 arrays to build a clean responsive masonry grid without column breaking bugs
-const col1 = testimonials.filter((_, i) => i % 3 === 0)
-const col2 = testimonials.filter((_, i) => i % 3 === 1)
-const col3 = testimonials.filter((_, i) => i % 3 === 2)
+import { useLandingPageData } from "@/lib/landing-page-data"
 
 export function TestimonialsSection() {
+  const data = useLandingPageData()
+  const testimonials = data.testimonials
+
+  // Split testimonials into 3 arrays to build a clean responsive masonry grid without column breaking bugs
+  const col1 = testimonials.filter((_, i) => i % 3 === 0)
+  const col2 = testimonials.filter((_, i) => i % 3 === 1)
+  const col3 = testimonials.filter((_, i) => i % 3 === 2)
   return (
     <section id="reviews" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <ScrollReveal>

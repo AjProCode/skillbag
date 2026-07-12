@@ -1,9 +1,8 @@
+"use client"
+
 import { MessageSquareOff, Users, Video, Sparkles, ShieldCheck, PlayCircle, AlertCircle } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import { initialData } from "@/lib/landing-page-data"
-
-const pasGrid = initialData.pasGrid
-const pasPillars = pasGrid.pillars
+import { useLandingPageData } from "@/lib/landing-page-data"
 
 const iconsMap = {
   Video: Video,
@@ -12,6 +11,9 @@ const iconsMap = {
 }
 
 export function SmallBatches() {
+  const data = useLandingPageData()
+  const pasGrid = data.pasGrid
+  const pasPillars = pasGrid.pillars
   return (
     <section id="why-skillbag" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <ScrollReveal>

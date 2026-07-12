@@ -33,11 +33,11 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
 
 const socials = [InstagramIcon, YoutubeIcon, FacebookIcon]
 
-import { initialData } from "@/lib/landing-page-data"
-
-const faqs = initialData.faqs
+import { useLandingPageData } from "@/lib/landing-page-data"
 
 export function SiteFooter() {
+  const data = useLandingPageData()
+  const faqs = data.faqs
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggleAccordion = (index: number) => {

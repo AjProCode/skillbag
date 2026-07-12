@@ -14,9 +14,14 @@ export async function POST(request: Request) {
       )
     }
 
-    // Save configuration payload to Cloud Firestore
+    // Save configuration payload to Cloud Firestore (with a 2-second timeout fallback)
     const docRef = doc(db, "landingPage", "config")
-    await setDoc(docRef, body)
+    await Promise.race([
+      setDoc(docRef, body),
+      new Promise((_, reject) => 
+        setTimeout(() => reject(new Error("Firestore write timeout. Please check your credentials in .env.local")), 2000)
+      )
+    ])
 
     return NextResponse.json({ success: true })
   } catch (error: any) {

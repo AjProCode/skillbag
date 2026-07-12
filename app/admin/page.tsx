@@ -35,15 +35,24 @@ export default function AdminPage() {
     async function loadConfig() {
       try {
         const docRef = doc(db, "landingPage", "config")
-        const docSnap = await getDoc(docRef)
-        if (docSnap.exists()) {
+        const docSnap = await Promise.race([
+          getDoc(docRef),
+          new Promise<any>((_, reject) => 
+            setTimeout(() => reject(new Error("Firestore fetch timeout")), 1200)
+          )
+        ])
+        if (docSnap && docSnap.exists()) {
           setData(docSnap.data() as LandingPageData)
         }
       } catch (err) {
-        console.error("Failed to load CMS config from Firestore in Admin Page:", err)
+        console.warn("CMS config fallback to static JSON:", err)
       }
     }
-    loadConfig()
+    
+    // Only attempt Firestore query if credentials are set in .env.local
+    if (process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID) {
+      loadConfig()
+    }
   }, [])
 
   const handleSave = async () => {

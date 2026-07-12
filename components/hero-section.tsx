@@ -6,38 +6,11 @@ import { Button } from "@/components/ui/button"
 import { WHATSAPP_URL } from "@/lib/site"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
-const personas = {
-  kids: {
-    eyebrow: "For curious kids",
-    title: "Don't let them fall behind. Give your child the confidence to lead.",
-    description:
-      "Interactive, small-batch live classes in public speaking, chess, logic, and music designed to build focus, speaking posture, and real-world confidence.",
-    stats: ["Max 8 students per batch", "Vetted 1% child-pedagogy mentors", "4.9/5 Parent satisfaction"],
-    badge: "100% Active live coaching",
-    studentName: "Aarav (Grade 5)",
-    tutorName: "Coach Rohan",
-    studentBubble: "Look! I solved the 3x3 Rubik's cube under 45 seconds!",
-    tutorBubble: "Incredible, Aarav! Your spatial memory has doubled! 🚀",
-    studentImage: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=80",
-    tutorImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80"
-  },
-  adults: {
-    eyebrow: "For ambitious adults",
-    title: "Don't just learn. Master real skills with live experts.",
-    description:
-      "Stop wasting hours on passive, pre-recorded lectures. Master corporate communication, active persuasion, and logical reasoning under live mentoring with peers.",
-    stats: ["100% live peer workshops", "Personal speaker reviews", "Flexible weekly batch timings"],
-    badge: "Industry-vetted educators",
-    studentName: "Nisha (Developer)",
-    tutorName: "Mentor Priya",
-    studentBubble: "How do I command attention in our team meetings?",
-    tutorBubble: "Slow down your pacing by 10% and pause before key takeaways, Nisha.",
-    studentImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80",
-    tutorImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80"
-  },
-} as const
+import { initialData } from "@/lib/landing-page-data"
 
-type PersonaKey = keyof typeof personas
+const personas = initialData.hero
+
+type PersonaKey = "kids" | "adults"
 
 export function HeroSection() {
   const [persona, setPersona] = useState<PersonaKey>("kids")

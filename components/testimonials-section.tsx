@@ -1,70 +1,14 @@
 import { Play, Star, Sparkles } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
-const testimonials = [
-  {
-    name: "Naina",
-    role: "Grade 5 Student",
-    course: "Public Speaking & Confidence",
-    transformation: "From shy to debate winner 🏆",
-    quote: "I used to freeze and look down whenever I had to speak in public. Skillbag's live speech drills gave me a safe, small-group space to practice. Last week, I won my first school-level debate competition!",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80",
-    isVideo: true,
-    videoDuration: "1:15"
-  },
-  {
-    name: "Aarav's Dad",
-    role: "Parent of Grade 4 Student",
-    course: "Abacus & Logic Skills",
-    transformation: "Shy kid to active class participant",
-    quote: "My son struggled with focus and would easily give up on math questions. The maximum 8 students limit meant the coach engaged him constantly. Now he loves solving abacus drills live!",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
-    isVideo: false
-  },
-  {
-    name: "Rohan",
-    role: "Software Engineer",
-    course: "Conversational English",
-    transformation: "Conquered corporate speaker anxiety 💬",
-    quote: "I was extremely anxious about presenting to client leads in the US. The instructor analyzed my vocal pacing, helped me eliminate fillers, and gave me practical exercises to speak with command.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80",
-    isVideo: true,
-    videoDuration: "0:58"
-  },
-  {
-    name: "Mira's Mom",
-    role: "Parent of Teen Learner",
-    course: "Guitar & Chord Mastery",
-    transformation: "Plays favorite songs confidently at home",
-    quote: "Mira had zero music experience and would private-practice in her room out of embarrassment. The friendly peer showcases built her confidence. Now she comfortably plays chord sequences for us!",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80",
-    isVideo: false
-  },
-  {
-    name: "Kunal's Father",
-    role: "Parent of Grade 6 Student",
-    course: "Chess Tactics Live",
-    transformation: "Channeled screen time into critical logic ♟️",
-    quote: "We wanted to reduce Kunal's passive iPad watching. The live chess coach redirected his screen time into analyzing board tactics and planning moves. His focus has improved in school too.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80",
-    isVideo: false
-  },
-  {
-    name: "Divya",
-    role: "MBA Candidate",
-    course: "Advanced Persuasion Skills",
-    transformation: "Aced placement round interview",
-    quote: "I had strong academic marks but failed at dynamic group discussions. The coaching structured my answers using frameworks that sound natural yet professional. It got me hired in the final round!",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
-    isVideo: true,
-    videoDuration: "1:04"
-  }
-]
+import { initialData } from "@/lib/landing-page-data"
+
+const testimonials = initialData.testimonials
 
 // Split testimonials into 3 arrays to build a clean responsive masonry grid without column breaking bugs
-const col1 = [testimonials[0], testimonials[3]]
-const col2 = [testimonials[1], testimonials[4]]
-const col3 = [testimonials[2], testimonials[5]]
+const col1 = testimonials.filter((_, i) => i % 3 === 0)
+const col2 = testimonials.filter((_, i) => i % 3 === 1)
+const col3 = testimonials.filter((_, i) => i % 3 === 2)
 
 export function TestimonialsSection() {
   return (

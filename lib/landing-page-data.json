@@ -1,0 +1,325 @@
+{
+  "hero": {
+    "kids": {
+      "eyebrow": "For curious kids",
+      "title": "Don't let them fall behind. Give your child the confidence to lead.",
+      "description": "Interactive, small-batch live classes in public speaking, chess, logic, and music designed to build focus, speaking posture, and real-world confidence.",
+      "stats": [
+        "Max 8 students per batch",
+        "Vetted 1% child-pedagogy mentors",
+        "4.9/5 Parent satisfaction"
+      ],
+      "badge": "100% Active live coaching",
+      "studentName": "Aarav (Grade 5)",
+      "tutorName": "Coach Rohan",
+      "studentBubble": "Look! I solved the 3x3 Rubik's cube under 45 seconds!",
+      "tutorBubble": "Incredible, Aarav! Your spatial memory has doubled! 🚀",
+      "studentImage": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=80",
+      "tutorImage": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80"
+    },
+    "adults": {
+      "eyebrow": "For ambitious adults",
+      "title": "Don't just learn. Master real skills with live experts.",
+      "description": "Stop wasting hours on passive, pre-recorded lectures. Master corporate communication, active persuasion, and logical reasoning under live mentoring with peers.",
+      "stats": [
+        "100% live peer workshops",
+        "Personal speaker reviews",
+        "Flexible weekly batch timings"
+      ],
+      "badge": "Industry-vetted educators",
+      "studentName": "Nisha (Developer)",
+      "tutorName": "Mentor Priya",
+      "studentBubble": "How do I command attention in our team meetings?",
+      "tutorBubble": "Slow down your pacing by 10% and pause before key takeaways, Nisha.",
+      "studentImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=80",
+      "tutorImage": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80"
+    }
+  },
+  "pasGrid": {
+    "title": "The Skillbag Difference: \\nWhy our students actually succeed.",
+    "description": "Learning a real skill requires feedback, correction, and encouragement. Passive videos don't talk back — Skillbag does.",
+    "pillars": [
+      {
+        "problemTitle": "Boring Passive Videos",
+        "problemDesc": "Watching pre-recorded video modules feels like a chore. There is no urgency to complete them, leading to a 95% dropout rate.",
+        "solutionTitle": "100% Live & Interactive",
+        "solutionDesc": "Active, two-way discussions. Learn by doing, ask questions on the fly, and receive immediate coaching inside every class.",
+        "iconName": "Video",
+        "badgeText": "Real-Time Engagement"
+      },
+      {
+        "problemTitle": "Feeling Invisible & Lost",
+        "problemDesc": "Large webinars with 100+ students leave no room for personal feedback. You're left to figure out mistakes on your own.",
+        "solutionTitle": "Max 8 Students per Batch",
+        "solutionDesc": "Intimate class sizing ensuring our certified mentors can focus on your specific strengths, weaknesses, and speaking posture.",
+        "iconName": "Users",
+        "badgeText": "Hyper-Personal Attention"
+      },
+      {
+        "problemTitle": "Unvetted, Average Tutors",
+        "problemDesc": "Many platforms hire unvetted freelancers with little teaching experience. Quality varies wildly, frustrating students.",
+        "solutionTitle": "Vetted, Top 1% Educators",
+        "solutionDesc": "Every Skillbag instructor undergoes rigorous pedagogy vetting, background checks, and active communication checks.",
+        "iconName": "Sparkles",
+        "badgeText": "World-Class Mentors"
+      }
+    ]
+  },
+  "courses": [
+    {
+      "title": "Skillbag Rubik's Cube Course",
+      "image": "https://images.unsplash.com/photo-1567646303972-f7de3a9c0a05?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cnViaWNzJTIwY3ViZXxlbnwwfHwwfHx8MA%3D%3D",
+      "rating": 4.9,
+      "studentCount": 1250,
+      "duration": "8 weeks",
+      "isPopular": true,
+      "isNewBatch": false,
+      "teacherName": "Skillbag Certified Coach",
+      "description": "Learn spatial pattern recognition, analytical finger tricks, and speed-solving algorithms in an engaging, interactive live online class environment.",
+      "level": "3*3",
+      "lessons": "6 live sessions",
+      "format": "Live online classes + interactive practice drills",
+      "outcomes": [
+        "Solve the 3x3 cube confidently from scratch",
+        "Master standard core layer algorithms",
+        "Improve mental focus and calculation speed"
+      ]
+    },
+    {
+      "title": "Skillbag Public Speaking Classes",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsgYL6hkaqZfnV17aVX49ynfSY-tjOjUNRS74RjXYehQ&s=10",
+      "rating": 4.8,
+      "studentCount": 890,
+      "duration": "4 weeks",
+      "isPopular": false,
+      "isNewBatch": true,
+      "teacherName": "Skillbag Speech Trainer",
+      "description": "Build real speaking confidence for presentations, conversations, and public scenarios through live interaction and constructive feedback loop exercises.",
+      "level": "Beginner",
+      "lessons": "12 live sessions",
+      "format": "Live online coaching + active video feedback",
+      "outcomes": [
+        "Speak with real clarity and projection",
+        "Overcome acute stage fear",
+        "Structure thoughts systematically for short talks"
+      ]
+    },
+    {
+      "title": "Skillbag Creative Writing Workshop",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
+      "rating": 4.7,
+      "studentCount": 670,
+      "duration": "10 weeks",
+      "isPopular": false,
+      "isNewBatch": false,
+      "teacherName": "Skillbag Writing Instructor",
+      "description": "Explore story mechanics, character formatting, and vocabulary enhancement through creative writing templates and active student prompt critiques.",
+      "level": "Intermediate",
+      "lessons": "20 live sessions",
+      "format": "Live online workshop classes",
+      "outcomes": [
+        "Write clear, engaging short stories",
+        "Develop a unique descriptive voice",
+        "Edit and proofread drafts with confidence"
+      ]
+    },
+    {
+      "title": "Skillbag Conversational Skills Course",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS50JUE6Ku_XgKSmp6YS8Uihv3fqro9mozbSL09e6798A&s=10",
+      "rating": 4.8,
+      "studentCount": 970,
+      "duration": "6 weeks",
+      "isPopular": false,
+      "isNewBatch": true,
+      "teacherName": "Skillbag Fluency Coach",
+      "description": "Strengthen practical everyday communication and dialogue confidence using structured small-group speaking exercises and regular peer simulations.",
+      "level": "Beginner to Intermediate",
+      "lessons": "12 live sessions",
+      "format": "Small-group interactive speaking sessions",
+      "outcomes": [
+        "Speak English more naturally in daily scenarios",
+        "Reduce sentence-forming pauses",
+        "Gain real-time interactive confidence"
+      ]
+    },
+    {
+      "title": "Skillbag Chess Course",
+      "image": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=600&q=80",
+      "rating": 4.9,
+      "studentCount": 1320,
+      "duration": "10 weeks",
+      "isPopular": true,
+      "isNewBatch": false,
+      "teacherName": "Skillbag Chess Mentor",
+      "description": "Master fundamental opening principles, tactical motifs (pins, forks), and endgame tracking patterns through guided board review sessions.",
+      "level": "Beginner to Advanced",
+      "lessons": "20 live sessions",
+      "format": "Live interactive coaching + game analysis",
+      "outcomes": [
+        "Analyze positions and calculate moves ahead",
+        "Improve strategic decision-making parameters",
+        "Play matches with tactical confidence"
+      ]
+    },
+    {
+      "title": "Skillbag Abacus Online Classes",
+      "image": "https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?auto=format&fit=crop&w=600&q=80",
+      "rating": 4.7,
+      "studentCount": 810,
+      "duration": "8 weeks",
+      "isPopular": false,
+      "isNewBatch": false,
+      "teacherName": "Skillbag Math Expert",
+      "description": "Boost your child's memory, visualization, arithmetic speed, and overall analytical focus through real-time soroban bead calculation techniques.",
+      "level": "Children",
+      "lessons": "16 live sessions",
+      "format": "Interactive guided calculation sessions",
+      "outcomes": [
+        "Execute multi-digit calculations with high speed",
+        "Sharpen visual focus and listening accuracy",
+        "Build a positive interest in mental arithmetic"
+      ]
+    },
+    {
+      "title": "Skillbag Guitar Course",
+      "image": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=600&q=80",
+      "rating": 4.8,
+      "studentCount": 940,
+      "duration": "10 weeks",
+      "isPopular": true,
+      "isNewBatch": false,
+      "teacherName": "Skillbag Music Instructor",
+      "description": "Learn chord fingerings, scale runs, structural strumming counts, and standard guitar tabs comfortably under expert guidance.",
+      "level": "Beginner",
+      "lessons": "20 live sessions",
+      "format": "Live online lessons + play-along streams",
+      "outcomes": [
+        "Transition smoothly between core beginner chords",
+        "Execute accurate rhythmic strumming counts",
+        "Read and play basic melodies via chord tabs"
+      ]
+    },
+    {
+      "title": "Skillbag Keyboard Sessions",
+      "image": "https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&w=600&q=80",
+      "rating": 4.7,
+      "studentCount": 720,
+      "duration": "8 weeks",
+      "isPopular": false,
+      "isNewBatch": false,
+      "teacherName": "Skillbag Keyboard Coach",
+      "description": "Gain a solid structural base in key signatures, hand posture scales, and single-hand melodies inside an encouraging digital room.",
+      "level": "Beginner",
+      "lessons": "16 live sessions",
+      "format": "Live overhead-view keyboard lessons",
+      "outcomes": [
+        "Play clean multi-note introductory melodies",
+        "Adopt proper ergonomic hand and finger seating",
+        "Track simple song patterns with correct timing"
+      ]
+    },
+    {
+      "title": "Skillbag Robotics Classes for Kids",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80",
+      "rating": 4.9,
+      "studentCount": 580,
+      "duration": "6 weeks",
+      "isPopular": false,
+      "isNewBatch": true,
+      "teacherName": "Skillbag STEM Specialist",
+      "description": "Ignite a passion for technology and innovation. Learn foundational block logic, mechanical structures, and systematic automation layouts.",
+      "level": "Children",
+      "lessons": "12 live sessions",
+      "format": "Live online STEM building labs",
+      "outcomes": [
+        "Understand fundamental mechanical connection concepts",
+        "Build simple automated functional layouts",
+        "Develop core logical thinking and design loops"
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Naina",
+      "role": "Grade 5 Student",
+      "course": "Public Speaking & Confidence",
+      "transformation": "From shy to debate winner 🏆",
+      "quote": "I used to freeze and look down whenever I had to speak in public. Skillbag's live speech drills gave me a safe, small-group space to practice. Last week, I won my first school-level debate competition!",
+      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80",
+      "isVideo": true,
+      "videoDuration": "1:15"
+    },
+    {
+      "name": "Aarav's Dad",
+      "role": "Parent of Grade 4 Student",
+      "course": "Abacus & Logic Skills",
+      "transformation": "Shy kid to active class participant",
+      "quote": "My son struggled with focus and would easily give up on math questions. The maximum 8 students limit meant the coach engaged him constantly. Now he loves solving abacus drills live!",
+      "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
+      "isVideo": false,
+      "videoDuration": ""
+    },
+    {
+      "name": "Rohan",
+      "role": "Software Engineer",
+      "course": "Conversational English",
+      "transformation": "Conquered corporate speaker anxiety 💬",
+      "quote": "I was extremely anxious about presenting to client leads in the US. The instructor analyzed my vocal pacing, helped me eliminate fillers, and gave me practical exercises to speak with command.",
+      "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80",
+      "isVideo": true,
+      "videoDuration": "0:58"
+    },
+    {
+      "name": "Mira's Mom",
+      "role": "Parent of Teen Learner",
+      "course": "Guitar & Chord Mastery",
+      "transformation": "Plays favorite songs confidently at home",
+      "quote": "Mira had zero music experience and would private-practice in her room out of embarrassment. The friendly peer showcases built her confidence. Now she comfortably plays chord sequences for us!",
+      "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80",
+      "isVideo": false,
+      "videoDuration": ""
+    },
+    {
+      "name": "Kunal's Father",
+      "role": "Parent of Grade 6 Student",
+      "course": "Chess Tactics Live",
+      "transformation": "Channeled screen time into critical logic ♟️",
+      "quote": "We wanted to reduce Kunal's passive iPad watching. The live chess coach redirected his screen time into analyzing board tactics and planning moves. His focus has improved in school too.",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80",
+      "isVideo": false,
+      "videoDuration": ""
+    },
+    {
+      "name": "Divya",
+      "role": "MBA Candidate",
+      "course": "Advanced Persuasion Skills",
+      "transformation": "Aced placement round interview",
+      "quote": "I had strong academic marks but failed at dynamic group discussions. The coaching structured my answers using frameworks that sound natural yet professional. It got me hired in the final round!",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
+      "isVideo": true,
+      "videoDuration": "1:04"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Do you offer live classes only?",
+      "answer": "Yes, every single Skillbag class is 100% live and interactive. We do not sell pre-recorded video lectures. Our students learn in real-time, face-to-face with the coach in structured virtual classrooms."
+    },
+    {
+      "question": "What is the schedule and batch frequency?",
+      "answer": "Classes are held twice a week. We offer flexible batch timings (afternoons, evenings, and weekends) to fit school and work schedules. If you miss a class, we provide a coordinate catch-up session."
+    },
+    {
+      "question": "How do I book a trial and what is the pricing?",
+      "answer": "Booking a trial is zero-friction. Click the 'Connect on WhatsApp' button and our admissions coordinator will instantly share batch schedules, clarify pricing tiers, and book your free trial slot."
+    },
+    {
+      "question": "What is your batch size capacity?",
+      "answer": "To ensure high-trust guidance and custom speaking feedback, we cap our batch sizes at 8 students maximum. This allows the tutor to call on every student and track individual progress."
+    },
+    {
+      "question": "What is your refund policy?",
+      "answer": "We offer a 100% satisfaction guarantee. If you decide to withdraw from the course within the first 2 sessions of starting the batch, we will issue a full refund, no questions asked."
+    }
+  ]
+}

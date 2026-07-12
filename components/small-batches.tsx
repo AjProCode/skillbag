@@ -1,32 +1,15 @@
 import { MessageSquareOff, Users, Video, Sparkles, ShieldCheck, PlayCircle, AlertCircle } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { initialData } from "@/lib/landing-page-data"
 
-const pasPillars = [
-  {
-    problemTitle: "Boring Passive Videos",
-    problemDesc: "Watching pre-recorded video modules feels like a chore. There is no urgency to complete them, leading to a 95% dropout rate.",
-    solutionTitle: "100% Live & Interactive",
-    solutionDesc: "Active, two-way discussions. Learn by doing, ask questions on the fly, and receive immediate coaching inside every class.",
-    icon: Video,
-    badgeText: "Real-Time Engagement"
-  },
-  {
-    problemTitle: "Feeling Invisible & Lost",
-    problemDesc: "Large webinars with 100+ students leave no room for personal feedback. You're left to figure out mistakes on your own.",
-    solutionTitle: "Max 8 Students per Batch",
-    solutionDesc: "Intimate class sizing ensuring our certified mentors can focus on your specific strengths, weaknesses, and speaking posture.",
-    icon: Users,
-    badgeText: "Hyper-Personal Attention"
-  },
-  {
-    problemTitle: "Unvetted, Average Tutors",
-    problemDesc: "Many platforms hire unvetted freelancers with little teaching experience. Quality varies wildly, frustrating students.",
-    solutionTitle: "Vetted, Top 1% Educators",
-    solutionDesc: "Every Skillbag instructor undergoes rigorous pedagogy vetting, background checks, and active communication checks.",
-    icon: Sparkles,
-    badgeText: "World-Class Mentors"
-  }
-]
+const pasGrid = initialData.pasGrid
+const pasPillars = pasGrid.pillars
+
+const iconsMap = {
+  Video: Video,
+  Users: Users,
+  Sparkles: Sparkles
+}
 
 export function SmallBatches() {
   return (
@@ -41,19 +24,19 @@ export function SmallBatches() {
                 <AlertCircle className="size-3.5" />
                 Why pre-recorded courses fail
               </div>
-              <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-                The Skillbag Difference: <br/>Why our students actually succeed.
+              <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl whitespace-pre-line">
+                {pasGrid.title}
               </h2>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Learning a real skill requires feedback, correction, and encouragement. Passive videos don't talk back — Skillbag does.
+              {pasGrid.description}
             </p>
           </div>
 
           {/* PAS Grid */}
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {pasPillars.map((pillar, index) => {
-              const Icon = pillar.icon
+              const Icon = iconsMap[pillar.iconName as keyof typeof iconsMap] || Video
               return (
                 <div
                   key={index}

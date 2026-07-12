@@ -33,28 +33,9 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
 
 const socials = [InstagramIcon, YoutubeIcon, FacebookIcon]
 
-const faqs = [
-  {
-    question: "Do you offer live classes only?",
-    answer: "Yes, every single Skillbag class is 100% live and interactive. We do not sell pre-recorded video lectures. Our students learn in real-time, face-to-face with the coach in structured virtual classrooms."
-  },
-  {
-    question: "What is the schedule and batch frequency?",
-    answer: "Classes are held twice a week. We offer flexible batch timings (afternoons, evenings, and weekends) to fit school and work schedules. If you miss a class, we provide a coordinate catch-up session."
-  },
-  {
-    question: "How do I book a trial and what is the pricing?",
-    answer: "Booking a trial is zero-friction. Click the 'Connect on WhatsApp' button and our admissions coordinator will instantly share batch schedules, clarify pricing tiers, and book your free trial slot."
-  },
-  {
-    question: "What is your batch size capacity?",
-    answer: "To ensure high-trust guidance and custom speaking feedback, we cap our batch sizes at 8 students maximum. This allows the tutor to call on every student and track individual progress."
-  },
-  {
-    question: "What is your refund policy?",
-    answer: "We offer a 100% satisfaction guarantee. If you decide to withdraw from the course within the first 2 sessions of starting the batch, we will issue a full refund, no questions asked."
-  }
-]
+import { initialData } from "@/lib/landing-page-data"
+
+const faqs = initialData.faqs
 
 export function SiteFooter() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)

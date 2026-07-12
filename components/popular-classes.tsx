@@ -4,8 +4,10 @@ import { useMemo, useState } from "react"
 import { Sparkles, CalendarRange } from "lucide-react"
 import { EnhancedClassCard } from "@/components/enhanced-class-card"
 import { CourseDetailsModal } from "@/components/course-details-modal"
-import { courses } from "@/lib/course-data"
+import { initialData } from "@/lib/landing-page-data"
 import { ScrollReveal } from "@/components/scroll-reveal"
+
+const courses = initialData.courses
 
 const filters = ["All", "Kids Corner", "Communication", "Music", "Logic & STEM"] as const
 

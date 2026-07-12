@@ -16,10 +16,29 @@ export async function POST(request: Request) {
 
     const filePath = path.join(process.cwd(), "lib", "landing-page-data.json")
     
-    // Write formatted JSON back to the local database file
-    await fs.writeFile(filePath, JSON.stringify(body, null, 2), "utf-8")
+    try {
+      // 1. Try direct write to local file
+      await fs.writeFile(filePath, JSON.stringify(body, null, 2), "utf-8")
+      return NextResponse.json({ success: true })
+    } catch (writeError: any) {
+      console.warn("Direct write failed, trying FS Helper daemon fallback:", writeError.message)
+      
+      // 2. If EROFS or permission error occurs, try writing via FS Helper daemon
+      const response = await fetch("http://127.0.0.1:3001/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      })
 
-    return NextResponse.json({ success: true })
+      if (!response.ok) {
+        const errData = await response.json()
+        throw new Error(errData.error || "FS Helper write failed")
+      }
+
+      return NextResponse.json({ success: true })
+    }
   } catch (error: any) {
     console.error("CMS Save Error:", error)
     return NextResponse.json(

@@ -28,8 +28,8 @@ export function ScrollReveal({ children, className, delay = 0, once = true }: Sc
         }
       },
       {
-        threshold: 0.16,
-        rootMargin: "0px 0px -60px 0px",
+        threshold: 0.02,
+        rootMargin: "0px",
       },
     )
 

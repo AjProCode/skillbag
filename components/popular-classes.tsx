@@ -38,7 +38,7 @@ export function PopularClasses() {
   }, [activeFilter])
 
   return (
-    <section id="courses" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <section id="courses" className="mx-auto max-w-6xl px-3 py-16 sm:px-6">
       <ScrollReveal>
         <div className="flex flex-col gap-6 rounded-[2rem] border border-border/70 bg-white/70 p-6 shadow-soft backdrop-blur-sm sm:flex-row sm:items-end sm:justify-between sm:p-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">

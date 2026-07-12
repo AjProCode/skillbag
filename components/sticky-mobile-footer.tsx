@@ -21,17 +21,17 @@ export function StickyMobileFooter() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 px-3 pb-safe sm:px-4">
+    <div className="fixed bottom-0 left-0 right-0 z-50 px-2 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-4">
       <div className="absolute inset-0 border-t border-white/60 bg-white/85 backdrop-blur-xl" />
 
-      <div className="relative mx-auto flex max-w-lg items-center justify-between gap-3 py-3">
+      <div className="relative mx-auto flex w-full max-w-lg items-center justify-between gap-2 py-2.5 sm:gap-3 sm:py-3">
         {!isMinimized && (
           <button
             onClick={() => setIsMinimized(true)}
-            className="flex size-10 flex-shrink-0 items-center justify-center rounded-full bg-stone-100 text-stone-600 transition-colors hover:bg-stone-200"
+            className="flex size-9 flex-shrink-0 items-center justify-center rounded-full bg-stone-100 text-stone-600 transition-colors hover:bg-stone-200 sm:size-10"
             aria-label="Minimize"
           >
-            <ChevronDown className="size-5" />
+            <ChevronDown className="size-4 sm:size-5" />
           </button>
         )}
 
@@ -39,7 +39,7 @@ export function StickyMobileFooter() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex flex-1 items-center justify-center gap-2 rounded-full bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-200 transition-all hover:bg-indigo-700 active:scale-95 ${
+          className={`flex flex-1 items-center justify-center gap-2 rounded-full bg-indigo-600 px-3 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-200 transition-all hover:bg-indigo-700 active:scale-95 sm:px-4 sm:py-3 ${
             isMinimized ? "py-2" : ""
           }`}
         >
@@ -57,10 +57,10 @@ export function StickyMobileFooter() {
         {isMinimized && (
           <button
             onClick={() => setIsMinimized(false)}
-            className="flex size-10 flex-shrink-0 items-center justify-center rounded-full bg-stone-100 text-stone-600 transition-colors hover:bg-stone-200"
+            className="flex size-9 flex-shrink-0 items-center justify-center rounded-full bg-stone-100 text-stone-600 transition-colors hover:bg-stone-200 sm:size-10"
             aria-label="Expand"
           >
-            <ChevronUp className="size-5" />
+            <ChevronUp className="size-4 sm:size-5" />
           </button>
         )}
       </div>

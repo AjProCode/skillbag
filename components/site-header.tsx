@@ -17,12 +17,12 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-3 sm:h-16 sm:px-6">
         <a href="#" className="flex items-center gap-3" aria-label="Skillbag home">
           <img
             src="/skillbag-logo.png"
             alt="Skillbag"
-            className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105 sm:h-12"
+            className="h-9 w-auto object-contain transition-transform duration-300 hover:scale-105 sm:h-12"
           />
         </a>
 
@@ -50,7 +50,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="flex size-10 items-center justify-center rounded-full bg-muted/70 text-foreground transition-all hover:bg-muted lg:hidden"
+            className="flex size-9 items-center justify-center rounded-full bg-muted/70 text-foreground transition-all hover:bg-muted lg:hidden sm:size-10"
             aria-label="Toggle menu"
             aria-expanded={open}
           >

@@ -17,11 +17,11 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/[0.04] bg-white/75 backdrop-blur-md transition-all duration-300">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-3 transition-transform duration-300 active:scale-95" aria-label="Skillbag home">
+        <a href="#" className="flex items-center gap-3 transition-transform duration-300 active:scale-200" aria-label="Skillbag home">
           <img
             src="/skillbag-logo.png"
             alt="Skillbag Logo"
-            className="h-8 w-auto object-contain transition-transform duration-300 hover:scale-105 sm:h-9"
+            className="h-8 w-auto object-contain transition-transform duration-300 hover:scale-210 sm:h-9"
           />
         </a>
 

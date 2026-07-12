@@ -34,13 +34,11 @@ export function SiteFooter() {
         <div className="grid gap-12 rounded-[2rem] border border-border/60 bg-card/70 p-6 shadow-soft backdrop-blur-sm sm:grid-cols-[1.1fr_0.9fr] sm:p-8">
           <div>
             <a href="#" className="flex items-center gap-3" aria-label="Skillbag home">
-              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-sm font-semibold text-primary-foreground shadow-soft">
-                S
-              </div>
-              <div className="leading-tight">
-                <p className="text-sm font-semibold text-foreground">Skillbag</p>
-                <p className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">Live learning</p>
-              </div>
+              <img
+                src="/skillbag-logo.png"
+                alt="Skillbag"
+                className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105 sm:h-12"
+              />
             </a>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Interactive online classes for every age. Learn, practice and grow — from anywhere in the world.

@@ -19,13 +19,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#" className="flex items-center gap-3" aria-label="Skillbag home">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-sm font-semibold text-primary-foreground shadow-soft">
-            S
-          </div>
-          <div className="leading-tight">
-            <p className="text-sm font-semibold text-foreground">Skillbag</p>
-            <p className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground">Live learning</p>
-          </div>
+          <img
+            src="/skillbag-logo.png"
+            alt="Skillbag"
+            className="h-10 w-auto object-contain transition-transform duration-300 hover:scale-105 sm:h-12"
+          />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">
